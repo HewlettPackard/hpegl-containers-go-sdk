@@ -1,7 +1,7 @@
 #!/bin/bash
 # (C) Copyright 2019-2020 Hewlett Packard Enterprise Development LP
 
-TAG=v0.3.1
+TAG=v0.3.6
 SOURCE_API_SPEC="https://raw.githubusercontent.com/hpe-hcss/caas/$TAG/api/openapi-spec/caas-public-api.yaml"
 PACKAGE=mcaasapi
 
