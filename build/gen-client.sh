@@ -79,10 +79,10 @@ function generate {
   REPO="${REPO/.git/}"
   PACKAGE_PATH=${REPO}/pkg/${PACKAGE}
   EXAMPLE_PATH=$(dirname $(realpath -s $0))/example.md
-  sed -i '' 's|Put the package under your project folder and add the following in import:||g' "$README"
-  sed -i '' "/## Installation/r $EXAMPLE_PATH" "$README"
-  sed -i '' "s|{{PACKAGE_PATH}}|${PACKAGE_PATH}|g" "$README"
-  sed -i '' "s|{{PACKAGE}}|${PACKAGE}|g" "$README"
+  sed -i 's|Put the package under your project folder and add the following in import:||g' "$README"
+  sed -i "/## Installation/r $EXAMPLE_PATH" "$README"
+  sed -i "s|{{PACKAGE_PATH}}|${PACKAGE_PATH}|g" "$README"
+  sed -i "s|{{PACKAGE}}|${PACKAGE}|g" "$README"
 
   tmp="$README".tmp
   awk '/## Documentation For Authorization/ {exit} {print}' "$README" > "$tmp" && mv "$tmp" $README
