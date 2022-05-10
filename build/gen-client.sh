@@ -61,9 +61,16 @@ function validate_input {
 }
 
 function generate {
-  docker pull swaggerapi/swagger-generator-v3
 
-  docker run --rm -v "${PWD}"/:/local swaggerapi/swagger-codegen-cli-v3 generate -i /local/"$API_SPEC" -l go -o /local/"$OUTPUT_DIR"  --additional-properties=packageName="$PACKAGE",packageVersion="$TAG",hidegenerationTimestamp=false
+  echo "Install java"
+  sudo apt-get update && sudo apt-get install openjdk-11-jdk
+  sudo update-alternatives --set java /usr/lib/jvm/java-11-openjdk-amd64/bin/java
+  sudo update-alternatives --set javac /usr/lib/jvm/java-11-openjdk-amd64/bin/javac
+
+  echo "Install swagger-codegen-cli"
+  wget https://repo1.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/3.0.34/swagger-codegen-cli-3.0.34.jar
+  chmod a+rx swagger-codegen-cli-3.0.34.jar
+  java -jar swagger-codegen-cli-3.0.34.jar generate -i "${PWD}"/"$API_SPEC" -l go -o "${PWD}"/"$OUTPUT_DIR"  --additional-properties=packageName="$PACKAGE",packageVersion="$TAG",hidegenerationTimestamp=false
 
   rm -rf "${PKG_DIR}"
   mkdir "${PKG_DIR}"
@@ -88,8 +95,9 @@ function generate {
   awk '/## Documentation For Authorization/ {exit} {print}' "$README" > "$tmp" && mv "$tmp" $README
 
   cp "$README" ./
+
+  rm -rf swagger-codegen-cli-3.0.34.jar
 }
 
 validate_input
 generate
-
