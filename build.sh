@@ -1,24 +1,26 @@
 #!/bin/bash
 # (C) Copyright 2019-2020 Hewlett Packard Enterprise Development LP
 
-TAG=v0.3.6
+TAG=$1
 SOURCE_API_SPEC="https://raw.githubusercontent.com/hpe-hcss/caas/$TAG/api/openapi-spec/caas-public-api.yaml"
 PACKAGE=mcaasapi
 
-BUILD_DIR=./build/latest
+BUILD_DIR=build/latest
 LATEST_API_SPEC=$BUILD_DIR/api.yaml
 
 function clean() {
-  rm -rf "$BUILD_DIR"/*
-  [[ -d "$BUILD_DIR" ]] || mkdir "$BUILD_DIR"
+  rm -rf ${PWD}/"$BUILD_DIR"/*
+  [[ -d ${PWD}/"$BUILD_DIR" ]] || mkdir ${PWD}/"$BUILD_DIR"
 }
 
 clean
 
 set -e
 
-./build/get-api-spec.sh -a $SOURCE_API_SPEC -o $LATEST_API_SPEC
+# Run outside the docker container
+./build/get-api-spec.sh -a $SOURCE_API_SPEC -o ${PWD}/$LATEST_API_SPEC
 
+# Run inside the docker container
 ./build/gen-client.sh -a $LATEST_API_SPEC -o $BUILD_DIR -p $PACKAGE -t $TAG
 
 clean
