@@ -34,4 +34,5 @@ type Cluster struct {
 	SpaceID string `json:"spaceID,omitempty"`
 	DefaultStorageClass string `json:"defaultStorageClass,omitempty"`
 	DefaultStorageClassDescription string `json:"defaultStorageClassDescription,omitempty"`
+	ProviderData *interface{} `json:"providerData,omitempty"`
 }

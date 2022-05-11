@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -256,7 +256,7 @@ Update the specified cluster for the current tenant
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **body** | [**Cluster**](Cluster.md)| cluster to update | 
+  **body** | [**UpdateCluster**](UpdateCluster.md)| cluster to update | 
   **id** | [**string**](.md)| cluster id | 
 
 ### Return type
