@@ -256,7 +256,7 @@ Update the specified cluster for the current tenant
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **body** | [**UpdateCluster**](UpdateCluster.md)| cluster to update | 
+  **body** | [**Cluster**](Cluster.md)| cluster to update | 
   **id** | [**string**](.md)| cluster id | 
 
 ### Return type
