@@ -89,7 +89,7 @@ function generate {
 
   cp "$README" ./
 
-  rm -rf swagger-codegen-cli-3.0.34.jar
+  rm -f swagger-codegen-cli-3.0.34.jar
 }
 
 validate_input
