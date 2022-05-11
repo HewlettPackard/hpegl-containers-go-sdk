@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **SpaceID** | **string** |  | [optional] [default to null]
 **DefaultStorageClass** | **string** |  | [optional] [default to null]
 **DefaultStorageClassDescription** | **string** |  | [optional] [default to null]
+**ProviderData** | [***interface{}**](interface{}.md) |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
