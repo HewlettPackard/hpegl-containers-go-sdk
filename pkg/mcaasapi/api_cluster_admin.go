@@ -910,7 +910,7 @@ Update the specified cluster for the current tenant
  * @param id cluster id
 @return Cluster
 */
-func (a *ClusterAdminApiService) ClustersIdPut(ctx context.Context, body UpdateCluster, id string) (Cluster, *http.Response, error) {
+func (a *ClusterAdminApiService) ClustersIdPut(ctx context.Context, body Cluster, id string) (Cluster, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}
