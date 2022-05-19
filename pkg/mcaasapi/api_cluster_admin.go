@@ -30,19 +30,19 @@ ClusterAdminApiService Retrive all cluster providers for the current appliance
 Retrive all cluster providers for the current appliance 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id appliance id
-@return []ClusterProvider
+@return ClusterProviders
 */
-func (a *ClusterAdminApiService) AppliancesIdClusterprovidersGet(ctx context.Context, id string) ([]ClusterProvider, *http.Response, error) {
+func (a *ClusterAdminApiService) V1AppliancesIdClusterprovidersGet(ctx context.Context, id string) (ClusterProviders, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		localVarReturnValue []ClusterProvider
+		localVarReturnValue ClusterProviders
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/appliances/{id}/clusterproviders"
+	localVarPath := a.client.cfg.BasePath + "/v1/appliances/{id}/clusterproviders"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -96,7 +96,7 @@ func (a *ClusterAdminApiService) AppliancesIdClusterprovidersGet(ctx context.Con
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v []ClusterProvider
+			var v ClusterProviders
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -135,19 +135,19 @@ ClusterAdminApiService Retrieve all cluster blueprints
 Retrieves all cluster blueprints available for the current tenant 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param spaceID space id
-@return []ClusterBlueprint
+@return ClusterBlueprints
 */
-func (a *ClusterAdminApiService) ClusterblueprintsGet(ctx context.Context, spaceID string) ([]ClusterBlueprint, *http.Response, error) {
+func (a *ClusterAdminApiService) V1ClusterblueprintsGet(ctx context.Context, spaceID string) (ClusterBlueprints, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		localVarReturnValue []ClusterBlueprint
+		localVarReturnValue ClusterBlueprints
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/clusterblueprints"
+	localVarPath := a.client.cfg.BasePath + "/v1/clusterblueprints"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -201,7 +201,7 @@ func (a *ClusterAdminApiService) ClusterblueprintsGet(ctx context.Context, space
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v []ClusterBlueprint
+			var v ClusterBlueprints
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -236,6 +236,114 @@ func (a *ClusterAdminApiService) ClusterblueprintsGet(ctx context.Context, space
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
+ClusterAdminApiService Delete a cluster blueprint
+Delete the specified blueprint for the current tenant 
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param id cluster blueprint id
+
+*/
+func (a *ClusterAdminApiService) V1ClusterblueprintsIdDelete(ctx context.Context, id string) (*http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Delete")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/v1/clusterblueprints/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarHttpResponse, err
+	}
+
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericSwaggerError{
+			body: localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 401 {
+			var v AuthenticationError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 403 {
+			var v ForbiddenError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 404 {
+			var v NotFoundError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 500 {
+			var v InternalError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarHttpResponse, newErr
+		}
+		return localVarHttpResponse, newErr
+	}
+
+	return localVarHttpResponse, nil
+}
+/*
 ClusterAdminApiService Retrieves an existing cluster blueprint
 Retrieve the specified cluster blueprint for the current tenant 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -243,7 +351,7 @@ Retrieve the specified cluster blueprint for the current tenant
  * @param spaceID Space filter
 @return ClusterBlueprint
 */
-func (a *ClusterAdminApiService) ClusterblueprintsIdGet(ctx context.Context, id string, spaceID string) (ClusterBlueprint, *http.Response, error) {
+func (a *ClusterAdminApiService) V1ClusterblueprintsIdGet(ctx context.Context, id string, spaceID string) (ClusterBlueprint, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -253,7 +361,7 @@ func (a *ClusterAdminApiService) ClusterblueprintsIdGet(ctx context.Context, id 
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/clusterblueprints/{id}"
+	localVarPath := a.client.cfg.BasePath + "/v1/clusterblueprints/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -353,23 +461,149 @@ func (a *ClusterAdminApiService) ClusterblueprintsIdGet(ctx context.Context, id 
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
+ClusterAdminApiService Create a new cluster blueprint
+Creates a new cluster blueprint for the current tenant 
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param body cluster blueprint to create
+@return ClusterBlueprint
+*/
+func (a *ClusterAdminApiService) V1ClusterblueprintsPost(ctx context.Context, body ClusterBlueprint) (ClusterBlueprint, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		localVarReturnValue ClusterBlueprint
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/v1/clusterblueprints"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &body
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode < 300 {
+		// If we succeed, return the data, otherwise pass on to decode error.
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericSwaggerError{
+			body: localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 201 {
+			var v ClusterBlueprint
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 400 {
+			var v BadRequestError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 401 {
+			var v AuthenticationError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 422 {
+			var v UnprocessingEntityError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 500 {
+			var v InternalError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+/*
 ClusterAdminApiService Retrieve all clusters currently created
 Retrieves all clusters currently created for the current tenant 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param spaceID space id
-@return []Cluster
+@return Clusters
 */
-func (a *ClusterAdminApiService) ClustersGet(ctx context.Context, spaceID string) ([]Cluster, *http.Response, error) {
+func (a *ClusterAdminApiService) V1ClustersGet(ctx context.Context, spaceID string) (Clusters, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		localVarReturnValue []Cluster
+		localVarReturnValue Clusters
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/clusters"
+	localVarPath := a.client.cfg.BasePath + "/v1/clusters"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -423,7 +657,7 @@ func (a *ClusterAdminApiService) ClustersGet(ctx context.Context, spaceID string
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v []Cluster
+			var v Clusters
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -464,7 +698,7 @@ Delete the specified cluster
  * @param id cluster id
 
 */
-func (a *ClusterAdminApiService) ClustersIdDelete(ctx context.Context, id string) (*http.Response, error) {
+func (a *ClusterAdminApiService) V1ClustersIdDelete(ctx context.Context, id string) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody   interface{}
@@ -474,7 +708,7 @@ func (a *ClusterAdminApiService) ClustersIdDelete(ctx context.Context, id string
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/clusters/{id}"
+	localVarPath := a.client.cfg.BasePath + "/v1/clusters/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -563,7 +797,7 @@ Retrieve the specified cluster
  * @param spaceID Space filter
 @return Cluster
 */
-func (a *ClusterAdminApiService) ClustersIdGet(ctx context.Context, id string, spaceID string) (Cluster, *http.Response, error) {
+func (a *ClusterAdminApiService) V1ClustersIdGet(ctx context.Context, id string, spaceID string) (Cluster, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -573,7 +807,7 @@ func (a *ClusterAdminApiService) ClustersIdGet(ctx context.Context, id string, s
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/clusters/{id}"
+	localVarPath := a.client.cfg.BasePath + "/v1/clusters/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -677,19 +911,19 @@ ClusterAdminApiService Retrieves available machine image version information of 
 Retrieve the available machine image version information of the cluster 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id cluster id
-@return MachineImageVersion
+@return MachineImageVersions
 */
-func (a *ClusterAdminApiService) ClustersIdMachineimageversionsGet(ctx context.Context, id string) (MachineImageVersion, *http.Response, error) {
+func (a *ClusterAdminApiService) V1ClustersIdMachineimageversionsGet(ctx context.Context, id string) (MachineImageVersions, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		localVarReturnValue MachineImageVersion
+		localVarReturnValue MachineImageVersions
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/clusters/{id}/machineimageversions"
+	localVarPath := a.client.cfg.BasePath + "/v1/clusters/{id}/machineimageversions"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -743,7 +977,7 @@ func (a *ClusterAdminApiService) ClustersIdMachineimageversionsGet(ctx context.C
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v MachineImageVersion
+			var v MachineImageVersions
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -792,19 +1026,19 @@ ClusterAdminApiService Retrieves namespaces from specified cluster
 Retrieve namespaces from specified cluster 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id cluster id
-@return []Namespace
+@return Namespaces
 */
-func (a *ClusterAdminApiService) ClustersIdNamespacesGet(ctx context.Context, id string) ([]Namespace, *http.Response, error) {
+func (a *ClusterAdminApiService) V1ClustersIdNamespacesGet(ctx context.Context, id string) (Namespaces, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		localVarReturnValue []Namespace
+		localVarReturnValue Namespaces
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/clusters/{id}/namespaces"
+	localVarPath := a.client.cfg.BasePath + "/v1/clusters/{id}/namespaces"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -858,7 +1092,7 @@ func (a *ClusterAdminApiService) ClustersIdNamespacesGet(ctx context.Context, id
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v []Namespace
+			var v Namespaces
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -910,7 +1144,7 @@ Update the specified cluster for the current tenant
  * @param id cluster id
 @return Cluster
 */
-func (a *ClusterAdminApiService) ClustersIdPut(ctx context.Context, body UpdateCluster, id string) (Cluster, *http.Response, error) {
+func (a *ClusterAdminApiService) V1ClustersIdPut(ctx context.Context, body UpdateCluster, id string) (Cluster, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}
@@ -920,7 +1154,7 @@ func (a *ClusterAdminApiService) ClustersIdPut(ctx context.Context, body UpdateC
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/clusters/{id}"
+	localVarPath := a.client.cfg.BasePath + "/v1/clusters/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1025,19 +1259,19 @@ ClusterAdminApiService Retrieves storage class information of an existing cluste
 Retrieve the specified storage class information of the cluster 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id cluster id
-@return []StorageClass
+@return StorageClasses
 */
-func (a *ClusterAdminApiService) ClustersIdStorageclassesGet(ctx context.Context, id string) ([]StorageClass, *http.Response, error) {
+func (a *ClusterAdminApiService) V1ClustersIdStorageclassesGet(ctx context.Context, id string) (StorageClasses, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		localVarReturnValue []StorageClass
+		localVarReturnValue StorageClasses
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/clusters/{id}/storageclasses"
+	localVarPath := a.client.cfg.BasePath + "/v1/clusters/{id}/storageclasses"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1091,7 +1325,7 @@ func (a *ClusterAdminApiService) ClustersIdStorageclassesGet(ctx context.Context
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v []StorageClass
+			var v StorageClasses
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -1142,7 +1376,7 @@ Creates a new cluster based on the specified cluster blueprint for the current t
  * @param body cluster to create with cluster blueprint reference
 @return Cluster
 */
-func (a *ClusterAdminApiService) ClustersPost(ctx context.Context, body CreateCluster) (Cluster, *http.Response, error) {
+func (a *ClusterAdminApiService) V1ClustersPost(ctx context.Context, body CreateCluster) (Cluster, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
@@ -1152,7 +1386,7 @@ func (a *ClusterAdminApiService) ClustersPost(ctx context.Context, body CreateCl
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/clusters"
+	localVarPath := a.client.cfg.BasePath + "/v1/clusters"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1262,23 +1496,23 @@ func (a *ClusterAdminApiService) ClustersPost(ctx context.Context, body CreateCl
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ClusterAdminApiService Retrieve all consumption details for the given space
-Retrieves all consumption details for the given space for the current tenant 
+ClusterAdminApiService Retrieve all machine blueprints
+Retrieves all machine blueprints available for the current tenant 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param spaceID space id
-@return []SiteConsumption
+@return MachineBlueprints
 */
-func (a *ClusterAdminApiService) ConsumptionGet(ctx context.Context, spaceID string) ([]SiteConsumption, *http.Response, error) {
+func (a *ClusterAdminApiService) V1MachineblueprintsGet(ctx context.Context, spaceID string) (MachineBlueprints, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		localVarReturnValue []SiteConsumption
+		localVarReturnValue MachineBlueprints
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/consumption"
+	localVarPath := a.client.cfg.BasePath + "/v1/machineblueprints"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1332,7 +1566,7 @@ func (a *ClusterAdminApiService) ConsumptionGet(ctx context.Context, spaceID str
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v []SiteConsumption
+			var v MachineBlueprints
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -1367,29 +1601,29 @@ func (a *ClusterAdminApiService) ConsumptionGet(ctx context.Context, spaceID str
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ClusterAdminApiService Retrieve all machine blueprints
-Retrieves all machine blueprints available for the current tenant 
+ClusterAdminApiService Delete a machine blueprint
+Delete the specified machine blueprint for the current tenant 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param spaceID space id
-@return []MachineBlueprint
+ * @param id machine blueprint id
+
 */
-func (a *ClusterAdminApiService) MachineblueprintsGet(ctx context.Context, spaceID string) ([]MachineBlueprint, *http.Response, error) {
+func (a *ClusterAdminApiService) V1MachineblueprintsIdDelete(ctx context.Context, id string) (*http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
+		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		localVarReturnValue []MachineBlueprint
+		
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/machineblueprints"
+	localVarPath := a.client.cfg.BasePath + "/v1/machineblueprints/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	localVarQueryParams.Add("spaceID", parameterToString(spaceID, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}
 
@@ -1409,67 +1643,70 @@ func (a *ClusterAdminApiService) MachineblueprintsGet(ctx context.Context, space
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarHttpResponse, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
+		return localVarHttpResponse, err
 	}
 
-	if localVarHttpResponse.StatusCode < 300 {
-		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
-		}
-	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		if localVarHttpResponse.StatusCode == 200 {
-			var v []MachineBlueprint
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
-		}
 		if localVarHttpResponse.StatusCode == 401 {
 			var v AuthenticationError
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarHttpResponse, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 403 {
+			var v ForbiddenError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 404 {
+			var v NotFoundError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 500 {
 			var v InternalError
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
+					return localVarHttpResponse, newErr
 				}
 				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
+				return localVarHttpResponse, newErr
 		}
-		return localVarReturnValue, localVarHttpResponse, newErr
+		return localVarHttpResponse, newErr
 	}
 
-	return localVarReturnValue, localVarHttpResponse, nil
+	return localVarHttpResponse, nil
 }
 /*
 ClusterAdminApiService Retrieves an existing machine blueprint
@@ -1479,7 +1716,7 @@ Retrieve the specified machine blueprint for the current tenant
  * @param spaceID Space filter
 @return MachineBlueprint
 */
-func (a *ClusterAdminApiService) MachineblueprintsIdGet(ctx context.Context, id string, spaceID string) (MachineBlueprint, *http.Response, error) {
+func (a *ClusterAdminApiService) V1MachineblueprintsIdGet(ctx context.Context, id string, spaceID string) (MachineBlueprint, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -1489,7 +1726,7 @@ func (a *ClusterAdminApiService) MachineblueprintsIdGet(ctx context.Context, id 
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/machineblueprints/{id}"
+	localVarPath := a.client.cfg.BasePath + "/v1/machineblueprints/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1565,6 +1802,132 @@ func (a *ClusterAdminApiService) MachineblueprintsIdGet(ctx context.Context, id 
 		}
 		if localVarHttpResponse.StatusCode == 404 {
 			var v NotFoundError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 500 {
+			var v InternalError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+/*
+ClusterAdminApiService Create a new machine blueprint
+Creates a new machine blueprint for the current tenant 
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param body machine blueprint to create
+@return MachineBlueprint
+*/
+func (a *ClusterAdminApiService) V1MachineblueprintsPost(ctx context.Context, body MachineBlueprint) (MachineBlueprint, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		localVarReturnValue MachineBlueprint
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/v1/machineblueprints"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &body
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode < 300 {
+		// If we succeed, return the data, otherwise pass on to decode error.
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericSwaggerError{
+			body: localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 201 {
+			var v MachineBlueprint
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 400 {
+			var v BadRequestError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 401 {
+			var v AuthenticationError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 422 {
+			var v UnprocessingEntityError
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()

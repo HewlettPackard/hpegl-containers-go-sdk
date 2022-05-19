@@ -60,9 +60,9 @@ type Configuration struct {
 
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
-		BasePath:      "https://mcaas.intg.hpedevops.net/mcaas/v1",
+		BasePath:      "https://mcaas.intg.hpedevops.net/mcaas",
 		DefaultHeader: make(map[string]string),
-		UserAgent:     "Swagger-Codegen/v0.3.7/go",
+		UserAgent:     "Swagger-Codegen/v0.4.1/go",
 	}
 	return cfg
 }

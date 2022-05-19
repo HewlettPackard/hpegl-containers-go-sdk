@@ -30,19 +30,19 @@ DeveloperApiService Retrieve all clusters currently created
 Retrieves all clusters currently created for the current tenant 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param spaceID space id
-@return []Cluster
+@return Clusters
 */
-func (a *DeveloperApiService) ClustersGet(ctx context.Context, spaceID string) ([]Cluster, *http.Response, error) {
+func (a *DeveloperApiService) V1ClustersGet(ctx context.Context, spaceID string) (Clusters, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		localVarReturnValue []Cluster
+		localVarReturnValue Clusters
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/clusters"
+	localVarPath := a.client.cfg.BasePath + "/v1/clusters"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -96,7 +96,7 @@ func (a *DeveloperApiService) ClustersGet(ctx context.Context, spaceID string) (
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v []Cluster
+			var v Clusters
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -138,7 +138,7 @@ Retrieve the specified cluster
  * @param spaceID Space filter
 @return Cluster
 */
-func (a *DeveloperApiService) ClustersIdGet(ctx context.Context, id string, spaceID string) (Cluster, *http.Response, error) {
+func (a *DeveloperApiService) V1ClustersIdGet(ctx context.Context, id string, spaceID string) (Cluster, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -148,7 +148,7 @@ func (a *DeveloperApiService) ClustersIdGet(ctx context.Context, id string, spac
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/clusters/{id}"
+	localVarPath := a.client.cfg.BasePath + "/v1/clusters/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -252,19 +252,19 @@ DeveloperApiService Retrieves available machine image version information of an 
 Retrieve the available machine image version information of the cluster 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id cluster id
-@return MachineImageVersion
+@return MachineImageVersions
 */
-func (a *DeveloperApiService) ClustersIdMachineimageversionsGet(ctx context.Context, id string) (MachineImageVersion, *http.Response, error) {
+func (a *DeveloperApiService) V1ClustersIdMachineimageversionsGet(ctx context.Context, id string) (MachineImageVersions, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		localVarReturnValue MachineImageVersion
+		localVarReturnValue MachineImageVersions
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/clusters/{id}/machineimageversions"
+	localVarPath := a.client.cfg.BasePath + "/v1/clusters/{id}/machineimageversions"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -318,7 +318,7 @@ func (a *DeveloperApiService) ClustersIdMachineimageversionsGet(ctx context.Cont
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v MachineImageVersion
+			var v MachineImageVersions
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -367,19 +367,19 @@ DeveloperApiService Retrieves namespaces from specified cluster
 Retrieve namespaces from specified cluster 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id cluster id
-@return []Namespace
+@return Namespaces
 */
-func (a *DeveloperApiService) ClustersIdNamespacesGet(ctx context.Context, id string) ([]Namespace, *http.Response, error) {
+func (a *DeveloperApiService) V1ClustersIdNamespacesGet(ctx context.Context, id string) (Namespaces, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		localVarReturnValue []Namespace
+		localVarReturnValue Namespaces
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/clusters/{id}/namespaces"
+	localVarPath := a.client.cfg.BasePath + "/v1/clusters/{id}/namespaces"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -433,7 +433,7 @@ func (a *DeveloperApiService) ClustersIdNamespacesGet(ctx context.Context, id st
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v []Namespace
+			var v Namespaces
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -482,19 +482,19 @@ DeveloperApiService Retrieves storage class information of an existing cluster f
 Retrieve the specified storage class information of the cluster 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id cluster id
-@return []StorageClass
+@return StorageClasses
 */
-func (a *DeveloperApiService) ClustersIdStorageclassesGet(ctx context.Context, id string) ([]StorageClass, *http.Response, error) {
+func (a *DeveloperApiService) V1ClustersIdStorageclassesGet(ctx context.Context, id string) (StorageClasses, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		localVarReturnValue []StorageClass
+		localVarReturnValue StorageClasses
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/clusters/{id}/storageclasses"
+	localVarPath := a.client.cfg.BasePath + "/v1/clusters/{id}/storageclasses"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -548,7 +548,7 @@ func (a *DeveloperApiService) ClustersIdStorageclassesGet(ctx context.Context, i
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v []StorageClass
+			var v StorageClasses
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -569,111 +569,6 @@ func (a *DeveloperApiService) ClustersIdStorageclassesGet(ctx context.Context, i
 		}
 		if localVarHttpResponse.StatusCode == 404 {
 			var v NotFoundError
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
-		}
-		if localVarHttpResponse.StatusCode == 500 {
-			var v InternalError
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
-		}
-		return localVarReturnValue, localVarHttpResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHttpResponse, nil
-}
-/*
-DeveloperApiService Retrieve all consumption details for the given space
-Retrieves all consumption details for the given space for the current tenant 
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param spaceID space id
-@return []SiteConsumption
-*/
-func (a *DeveloperApiService) ConsumptionGet(ctx context.Context, spaceID string) ([]SiteConsumption, *http.Response, error) {
-	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		localVarReturnValue []SiteConsumption
-	)
-
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/consumption"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	localVarQueryParams.Add("spaceID", parameterToString(spaceID, ""))
-	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
-	if localVarHttpContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHttpContentType
-	}
-
-	// to determine the Accept header
-	localVarHttpHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
-	if localVarHttpHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
-	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
-	}
-
-	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	localVarHttpResponse.Body.Close()
-	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
-	}
-
-	if localVarHttpResponse.StatusCode < 300 {
-		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
-			return localVarReturnValue, localVarHttpResponse, err
-		}
-	}
-
-	if localVarHttpResponse.StatusCode >= 300 {
-		newErr := GenericSwaggerError{
-			body: localVarBody,
-			error: localVarHttpResponse.Status,
-		}
-		if localVarHttpResponse.StatusCode == 200 {
-			var v []SiteConsumption
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
-				return localVarReturnValue, localVarHttpResponse, newErr
-		}
-		if localVarHttpResponse.StatusCode == 401 {
-			var v AuthenticationError
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()

@@ -1,18 +1,17 @@
 # {{classname}}
 
-All URIs are relative to *https://mcaas.intg.hpedevops.net/mcaas/v1*
+All URIs are relative to *https://mcaas.intg.hpedevops.net/mcaas*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ClustersGet**](DeveloperApi.md#ClustersGet) | **Get** /clusters | Retrieve all clusters currently created
-[**ClustersIdGet**](DeveloperApi.md#ClustersIdGet) | **Get** /clusters/{id} | Retrieves an existing cluster for the current user space in a tenant
-[**ClustersIdMachineimageversionsGet**](DeveloperApi.md#ClustersIdMachineimageversionsGet) | **Get** /clusters/{id}/machineimageversions | Retrieves available machine image version information of an existing cluster for the current user space in a tenant
-[**ClustersIdNamespacesGet**](DeveloperApi.md#ClustersIdNamespacesGet) | **Get** /clusters/{id}/namespaces | Retrieves namespaces from specified cluster
-[**ClustersIdStorageclassesGet**](DeveloperApi.md#ClustersIdStorageclassesGet) | **Get** /clusters/{id}/storageclasses | Retrieves storage class information of an existing cluster for the current user space in a tenant
-[**ConsumptionGet**](DeveloperApi.md#ConsumptionGet) | **Get** /consumption | Retrieve all consumption details for the given space
+[**V1ClustersGet**](DeveloperApi.md#V1ClustersGet) | **Get** /v1/clusters | Retrieve all clusters currently created
+[**V1ClustersIdGet**](DeveloperApi.md#V1ClustersIdGet) | **Get** /v1/clusters/{id} | Retrieves an existing cluster for the current user space in a tenant
+[**V1ClustersIdMachineimageversionsGet**](DeveloperApi.md#V1ClustersIdMachineimageversionsGet) | **Get** /v1/clusters/{id}/machineimageversions | Retrieves available machine image version information of an existing cluster for the current user space in a tenant
+[**V1ClustersIdNamespacesGet**](DeveloperApi.md#V1ClustersIdNamespacesGet) | **Get** /v1/clusters/{id}/namespaces | Retrieves namespaces from specified cluster
+[**V1ClustersIdStorageclassesGet**](DeveloperApi.md#V1ClustersIdStorageclassesGet) | **Get** /v1/clusters/{id}/storageclasses | Retrieves storage class information of an existing cluster for the current user space in a tenant
 
-# **ClustersGet**
-> []Cluster ClustersGet(ctx, spaceID)
+# **V1ClustersGet**
+> Clusters V1ClustersGet(ctx, spaceID)
 Retrieve all clusters currently created
 
 Retrieves all clusters currently created for the current tenant 
@@ -26,7 +25,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Cluster**](Cluster.md)
+[**Clusters**](Clusters.md)
 
 ### Authorization
 
@@ -39,8 +38,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **ClustersIdGet**
-> Cluster ClustersIdGet(ctx, id, spaceID)
+# **V1ClustersIdGet**
+> Cluster V1ClustersIdGet(ctx, id, spaceID)
 Retrieves an existing cluster for the current user space in a tenant
 
 Retrieve the specified cluster 
@@ -68,8 +67,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **ClustersIdMachineimageversionsGet**
-> MachineImageVersion ClustersIdMachineimageversionsGet(ctx, id)
+# **V1ClustersIdMachineimageversionsGet**
+> MachineImageVersions V1ClustersIdMachineimageversionsGet(ctx, id)
 Retrieves available machine image version information of an existing cluster for the current user space in a tenant
 
 Retrieve the available machine image version information of the cluster 
@@ -83,7 +82,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MachineImageVersion**](MachineImageVersion.md)
+[**MachineImageVersions**](MachineImageVersions.md)
 
 ### Authorization
 
@@ -96,8 +95,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **ClustersIdNamespacesGet**
-> []Namespace ClustersIdNamespacesGet(ctx, id)
+# **V1ClustersIdNamespacesGet**
+> Namespaces V1ClustersIdNamespacesGet(ctx, id)
 Retrieves namespaces from specified cluster
 
 Retrieve namespaces from specified cluster 
@@ -111,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Namespace**](Namespace.md)
+[**Namespaces**](Namespaces.md)
 
 ### Authorization
 
@@ -124,8 +123,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **ClustersIdStorageclassesGet**
-> []StorageClass ClustersIdStorageclassesGet(ctx, id)
+# **V1ClustersIdStorageclassesGet**
+> StorageClasses V1ClustersIdStorageclassesGet(ctx, id)
 Retrieves storage class information of an existing cluster for the current user space in a tenant
 
 Retrieve the specified storage class information of the cluster 
@@ -139,35 +138,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]StorageClass**](StorageClass.md)
-
-### Authorization
-
-[BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **ConsumptionGet**
-> []SiteConsumption ConsumptionGet(ctx, spaceID)
-Retrieve all consumption details for the given space
-
-Retrieves all consumption details for the given space for the current tenant 
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **spaceID** | [**string**](.md)| space id | 
-
-### Return type
-
-[**[]SiteConsumption**](SiteConsumption.md)
+[**StorageClasses**](StorageClasses.md)
 
 ### Authorization
 

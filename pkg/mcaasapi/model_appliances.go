@@ -9,8 +9,8 @@
  */
 package mcaasapi
 
-type SiteConsumption struct {
-	ApplianceID string `json:"applianceID,omitempty"`
-	ApplianceName string `json:"applianceName,omitempty"`
-	Consumption *SiteConsumptionConsumption `json:"consumption,omitempty"`
+type Appliances struct {
+	Count int32 `json:"count,omitempty"`
+	Total int32 `json:"total,omitempty"`
+	Items []Appliance `json:"items,omitempty"`
 }
