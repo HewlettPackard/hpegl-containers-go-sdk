@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **LastUpdateDate** | [**time.Time**](time.Time.md) |  | [optional] [default to null]
 **Id** | **string** |  | [optional] [default to null]
 **Name** | **string** |  | [optional] [default to null]
+**Description** | **string** |  | [optional] [default to null]
 **K8sVersion** | **string** |  | [optional] [default to null]
 **ClusterProvider** | **string** |  | [optional] [default to null]
 **MachineSets** | [**[]MachineSet**](MachineSet.md) |  | [optional] [default to null]

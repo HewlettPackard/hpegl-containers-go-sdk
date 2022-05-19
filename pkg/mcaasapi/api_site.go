@@ -29,19 +29,19 @@ SiteApiService Retrive all appliances on which user has access
 Retrive all appliances on which user has access 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param spaceID space id
-@return []Appliance
+@return Appliances
 */
-func (a *SiteApiService) AppliancesGet(ctx context.Context, spaceID string) ([]Appliance, *http.Response, error) {
+func (a *SiteApiService) V1AppliancesGet(ctx context.Context, spaceID string) (Appliances, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		localVarReturnValue []Appliance
+		localVarReturnValue Appliances
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/appliances"
+	localVarPath := a.client.cfg.BasePath + "/v1/appliances"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -95,7 +95,7 @@ func (a *SiteApiService) AppliancesGet(ctx context.Context, spaceID string) ([]A
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v []Appliance
+			var v Appliances
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()

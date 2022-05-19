@@ -1,13 +1,13 @@
 # {{classname}}
 
-All URIs are relative to *https://mcaas.intg.hpedevops.net/mcaas/v1*
+All URIs are relative to *https://mcaas.intg.hpedevops.net/mcaas*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AppliancesGet**](SiteApi.md#AppliancesGet) | **Get** /appliances | Retrive all appliances on which user has access
+[**V1AppliancesGet**](SiteApi.md#V1AppliancesGet) | **Get** /v1/appliances | Retrive all appliances on which user has access
 
-# **AppliancesGet**
-> []Appliance AppliancesGet(ctx, spaceID)
+# **V1AppliancesGet**
+> Appliances V1AppliancesGet(ctx, spaceID)
 Retrive all appliances on which user has access
 
 Retrive all appliances on which user has access 
@@ -21,7 +21,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Appliance**](Appliance.md)
+[**Appliances**](Appliances.md)
 
 ### Authorization
 
