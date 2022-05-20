@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**V1ClustersGet**](ClusterAdminApi.md#V1ClustersGet) | **Get** /v1/clusters | Retrieve all clusters currently created
 [**V1ClustersIdDelete**](ClusterAdminApi.md#V1ClustersIdDelete) | **Delete** /v1/clusters/{id} | Delete a cluster for the current tenant
 [**V1ClustersIdGet**](ClusterAdminApi.md#V1ClustersIdGet) | **Get** /v1/clusters/{id} | Retrieves an existing cluster for the current user space in a tenant
+[**V1ClustersIdKubeconfigGet**](ClusterAdminApi.md#V1ClustersIdKubeconfigGet) | **Get** /v1/clusters/{id}/kubeconfig | Retrieves kubeconfig for specified cluster
 [**V1ClustersIdMachineimageversionsGet**](ClusterAdminApi.md#V1ClustersIdMachineimageversionsGet) | **Get** /v1/clusters/{id}/machineimageversions | Retrieves available machine image version information of an existing cluster for the current user space in a tenant
 [**V1ClustersIdNamespacesGet**](ClusterAdminApi.md#V1ClustersIdNamespacesGet) | **Get** /v1/clusters/{id}/namespaces | Retrieves namespaces from specified cluster
 [**V1ClustersIdPut**](ClusterAdminApi.md#V1ClustersIdPut) | **Put** /v1/clusters/{id} | Update a cluster
@@ -51,7 +52,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **V1ClusterblueprintsGet**
-> ClusterBlueprints V1ClusterblueprintsGet(ctx, spaceID)
+> ClusterBlueprints V1ClusterblueprintsGet(ctx, applianceID)
 Retrieve all cluster blueprints
 
 Retrieves all cluster blueprints available for the current tenant 
@@ -61,7 +62,7 @@ Retrieves all cluster blueprints available for the current tenant
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **spaceID** | [**string**](.md)| space id | 
+  **applianceID** | [**string**](.md)| appliance id | 
 
 ### Return type
 
@@ -107,7 +108,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **V1ClusterblueprintsIdGet**
-> ClusterBlueprint V1ClusterblueprintsIdGet(ctx, id, spaceID)
+> ClusterBlueprint V1ClusterblueprintsIdGet(ctx, id, applianceID)
 Retrieves an existing cluster blueprint
 
 Retrieve the specified cluster blueprint for the current tenant 
@@ -118,7 +119,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **id** | [**string**](.md)| cluster blueprint id | 
-  **spaceID** | [**string**](.md)| Space filter | 
+  **applianceID** | [**string**](.md)| Appliance filter | 
 
 ### Return type
 
@@ -236,6 +237,34 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Cluster**](Cluster.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **V1ClustersIdKubeconfigGet**
+> Kubeconfig V1ClustersIdKubeconfigGet(ctx, id)
+Retrieves kubeconfig for specified cluster
+
+Retrieve kubeconfig for specified cluster 
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **id** | [**string**](.md)| cluster id | 
+
+### Return type
+
+[**Kubeconfig**](Kubeconfig.md)
 
 ### Authorization
 
@@ -390,7 +419,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **V1MachineblueprintsGet**
-> MachineBlueprints V1MachineblueprintsGet(ctx, spaceID)
+> MachineBlueprints V1MachineblueprintsGet(ctx, applianceID)
 Retrieve all machine blueprints
 
 Retrieves all machine blueprints available for the current tenant 
@@ -400,7 +429,7 @@ Retrieves all machine blueprints available for the current tenant
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **spaceID** | [**string**](.md)| space id | 
+  **applianceID** | [**string**](.md)| appliance id | 
 
 ### Return type
 
@@ -446,7 +475,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **V1MachineblueprintsIdGet**
-> MachineBlueprint V1MachineblueprintsIdGet(ctx, id, spaceID)
+> MachineBlueprint V1MachineblueprintsIdGet(ctx, id, applianceID)
 Retrieves an existing machine blueprint
 
 Retrieve the specified machine blueprint for the current tenant 
@@ -457,7 +486,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **id** | [**string**](.md)| machine blueprint id | 
-  **spaceID** | [**string**](.md)| Space filter | 
+  **applianceID** | [**string**](.md)| Appliance filter | 
 
 ### Return type
 

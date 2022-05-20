@@ -134,10 +134,10 @@ func (a *ClusterAdminApiService) V1AppliancesIdClusterprovidersGet(ctx context.C
 ClusterAdminApiService Retrieve all cluster blueprints
 Retrieves all cluster blueprints available for the current tenant 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param spaceID space id
+ * @param applianceID appliance id
 @return ClusterBlueprints
 */
-func (a *ClusterAdminApiService) V1ClusterblueprintsGet(ctx context.Context, spaceID string) (ClusterBlueprints, *http.Response, error) {
+func (a *ClusterAdminApiService) V1ClusterblueprintsGet(ctx context.Context, applianceID string) (ClusterBlueprints, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -153,7 +153,7 @@ func (a *ClusterAdminApiService) V1ClusterblueprintsGet(ctx context.Context, spa
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	localVarQueryParams.Add("spaceID", parameterToString(spaceID, ""))
+	localVarQueryParams.Add("applianceID", parameterToString(applianceID, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}
 
@@ -348,10 +348,10 @@ ClusterAdminApiService Retrieves an existing cluster blueprint
 Retrieve the specified cluster blueprint for the current tenant 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id cluster blueprint id
- * @param spaceID Space filter
+ * @param applianceID Appliance filter
 @return ClusterBlueprint
 */
-func (a *ClusterAdminApiService) V1ClusterblueprintsIdGet(ctx context.Context, id string, spaceID string) (ClusterBlueprint, *http.Response, error) {
+func (a *ClusterAdminApiService) V1ClusterblueprintsIdGet(ctx context.Context, id string, applianceID string) (ClusterBlueprint, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -368,7 +368,7 @@ func (a *ClusterAdminApiService) V1ClusterblueprintsIdGet(ctx context.Context, i
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	localVarQueryParams.Add("spaceID", parameterToString(spaceID, ""))
+	localVarQueryParams.Add("applianceID", parameterToString(applianceID, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}
 
@@ -863,6 +863,121 @@ func (a *ClusterAdminApiService) V1ClustersIdGet(ctx context.Context, id string,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v Cluster
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 401 {
+			var v AuthenticationError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 404 {
+			var v NotFoundError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 500 {
+			var v InternalError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+/*
+ClusterAdminApiService Retrieves kubeconfig for specified cluster
+Retrieve kubeconfig for specified cluster 
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param id cluster id
+@return Kubeconfig
+*/
+func (a *ClusterAdminApiService) V1ClustersIdKubeconfigGet(ctx context.Context, id string) (Kubeconfig, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		localVarReturnValue Kubeconfig
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/v1/clusters/{id}/kubeconfig"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode < 300 {
+		// If we succeed, return the data, otherwise pass on to decode error.
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericSwaggerError{
+			body: localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 200 {
+			var v Kubeconfig
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -1499,10 +1614,10 @@ func (a *ClusterAdminApiService) V1ClustersPost(ctx context.Context, body Create
 ClusterAdminApiService Retrieve all machine blueprints
 Retrieves all machine blueprints available for the current tenant 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param spaceID space id
+ * @param applianceID appliance id
 @return MachineBlueprints
 */
-func (a *ClusterAdminApiService) V1MachineblueprintsGet(ctx context.Context, spaceID string) (MachineBlueprints, *http.Response, error) {
+func (a *ClusterAdminApiService) V1MachineblueprintsGet(ctx context.Context, applianceID string) (MachineBlueprints, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -1518,7 +1633,7 @@ func (a *ClusterAdminApiService) V1MachineblueprintsGet(ctx context.Context, spa
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	localVarQueryParams.Add("spaceID", parameterToString(spaceID, ""))
+	localVarQueryParams.Add("applianceID", parameterToString(applianceID, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}
 
@@ -1713,10 +1828,10 @@ ClusterAdminApiService Retrieves an existing machine blueprint
 Retrieve the specified machine blueprint for the current tenant 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id machine blueprint id
- * @param spaceID Space filter
+ * @param applianceID Appliance filter
 @return MachineBlueprint
 */
-func (a *ClusterAdminApiService) V1MachineblueprintsIdGet(ctx context.Context, id string, spaceID string) (MachineBlueprint, *http.Response, error) {
+func (a *ClusterAdminApiService) V1MachineblueprintsIdGet(ctx context.Context, id string, applianceID string) (MachineBlueprint, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -1733,7 +1848,7 @@ func (a *ClusterAdminApiService) V1MachineblueprintsIdGet(ctx context.Context, i
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	localVarQueryParams.Add("spaceID", parameterToString(spaceID, ""))
+	localVarQueryParams.Add("applianceID", parameterToString(applianceID, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}
 
