@@ -9,7 +9,5 @@
  */
 package mcaasapi
 
-type MachineImageVersion struct {
-	Master []MachineImage `json:"master,omitempty"`
-	Worker []MachineImage `json:"worker,omitempty"`
+type EmptyBody struct {
 }
