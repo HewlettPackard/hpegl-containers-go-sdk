@@ -13,7 +13,6 @@ Method | HTTP request | Description
 [**V1ClustersIdDelete**](ClusterAdminApi.md#V1ClustersIdDelete) | **Delete** /v1/clusters/{id} | Delete a cluster for the current tenant
 [**V1ClustersIdGet**](ClusterAdminApi.md#V1ClustersIdGet) | **Get** /v1/clusters/{id} | Retrieves an existing cluster for the current user space in a tenant
 [**V1ClustersIdKubeconfigGet**](ClusterAdminApi.md#V1ClustersIdKubeconfigGet) | **Get** /v1/clusters/{id}/kubeconfig | Retrieves kubeconfig for specified cluster
-[**V1ClustersIdMachineimageversionsGet**](ClusterAdminApi.md#V1ClustersIdMachineimageversionsGet) | **Get** /v1/clusters/{id}/machineimageversions | Retrieves available machine image version information of an existing cluster for the current user space in a tenant
 [**V1ClustersIdNamespacesGet**](ClusterAdminApi.md#V1ClustersIdNamespacesGet) | **Get** /v1/clusters/{id}/namespaces | Retrieves namespaces from specified cluster
 [**V1ClustersIdPut**](ClusterAdminApi.md#V1ClustersIdPut) | **Put** /v1/clusters/{id} | Update a cluster
 [**V1ClustersIdStorageclassesGet**](ClusterAdminApi.md#V1ClustersIdStorageclassesGet) | **Get** /v1/clusters/{id}/storageclasses | Retrieves storage class information of an existing cluster for the current user space in a tenant
@@ -193,7 +192,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **V1ClustersIdDelete**
-> V1ClustersIdDelete(ctx, id)
+> EmptyBody V1ClustersIdDelete(ctx, id)
 Delete a cluster for the current tenant
 
 Delete the specified cluster 
@@ -207,7 +206,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**EmptyBody**](EmptyBody.md)
 
 ### Authorization
 
@@ -265,34 +264,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Kubeconfig**](Kubeconfig.md)
-
-### Authorization
-
-[BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **V1ClustersIdMachineimageversionsGet**
-> MachineImageVersions V1ClustersIdMachineimageversionsGet(ctx, id)
-Retrieves available machine image version information of an existing cluster for the current user space in a tenant
-
-Retrieve the available machine image version information of the cluster 
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | [**string**](.md)| cluster id | 
-
-### Return type
-
-[**MachineImageVersions**](MachineImageVersions.md)
 
 ### Authorization
 
