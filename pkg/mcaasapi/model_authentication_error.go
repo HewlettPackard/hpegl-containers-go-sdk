@@ -10,8 +10,8 @@
 package mcaasapi
 
 type AuthenticationError struct {
-	Message string `json:"Message,omitempty"`
-	Details string `json:"Details,omitempty"`
-	RecommendedActions []string `json:"RecommendedActions,omitempty"`
-	ErrorCode string `json:"ErrorCode,omitempty"`
+	Message string `json:"message,omitempty"`
+	Details string `json:"details,omitempty"`
+	RecommendedActions []string `json:"recommendedActions,omitempty"`
+	ErrorCode string `json:"errorCode,omitempty"`
 }

@@ -10,7 +10,7 @@
 package mcaasapi
 
 type UnprocessingEntityError struct {
-	Message string `json:"Message,omitempty"`
-	Details string `json:"Details,omitempty"`
-	ErrorCode string `json:"ErrorCode,omitempty"`
+	Message string `json:"message,omitempty"`
+	Details string `json:"details,omitempty"`
+	ErrorCode string `json:"errorCode,omitempty"`
 }
