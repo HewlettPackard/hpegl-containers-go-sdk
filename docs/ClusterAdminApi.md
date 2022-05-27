@@ -5,6 +5,7 @@ All URIs are relative to *https://mcaas.intg.hpedevops.net/mcaas*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**V1AppliancesIdClusterprovidersGet**](ClusterAdminApi.md#V1AppliancesIdClusterprovidersGet) | **Get** /v1/appliances/{id}/clusterproviders | Retrive all cluster providers for the current appliance
+[**V1AppliancesIdMachineprovidersGet**](ClusterAdminApi.md#V1AppliancesIdMachineprovidersGet) | **Get** /v1/appliances/{id}/machineproviders | Retrive all machine providers for the current appliance
 [**V1ClusterblueprintsGet**](ClusterAdminApi.md#V1ClusterblueprintsGet) | **Get** /v1/clusterblueprints | Retrieve all cluster blueprints
 [**V1ClusterblueprintsIdDelete**](ClusterAdminApi.md#V1ClusterblueprintsIdDelete) | **Delete** /v1/clusterblueprints/{id} | Delete a cluster blueprint
 [**V1ClusterblueprintsIdGet**](ClusterAdminApi.md#V1ClusterblueprintsIdGet) | **Get** /v1/clusterblueprints/{id} | Retrieves an existing cluster blueprint
@@ -38,6 +39,34 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ClusterProviders**](ClusterProviders.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **V1AppliancesIdMachineprovidersGet**
+> MachineProviders V1AppliancesIdMachineprovidersGet(ctx, id)
+Retrive all machine providers for the current appliance
+
+Retrive all machine providers for the current appliance 
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **id** | [**string**](.md)| appliance id | 
+
+### Return type
+
+[**MachineProviders**](MachineProviders.md)
 
 ### Authorization
 
