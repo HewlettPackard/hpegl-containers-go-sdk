@@ -19,9 +19,9 @@ type ClusterProvider struct {
 	LastUpdateDate time.Time `json:"lastUpdateDate,omitempty"`
 	Id string `json:"id,omitempty"`
 	Name string `json:"name,omitempty"`
-	K8sVersions string `json:"k8sVersions,omitempty"`
-	MinMasterSize []SizeDetail `json:"minMasterSize,omitempty"`
-	MinWorkerSize []SizeDetail `json:"minWorkerSize,omitempty"`
+	K8sVersions []string `json:"k8sVersions,omitempty"`
+	MinMasterSize *AllOfClusterProviderMinMasterSize `json:"minMasterSize,omitempty"`
+	MinWorkerSize *AllOfClusterProviderMinWorkerSize `json:"minWorkerSize,omitempty"`
 	LicenseInfo *ClusterProviderLicenseInfo `json:"licenseInfo,omitempty"`
 	StorageClasses []StorageClass `json:"storageClasses,omitempty"`
 	AvailableCapacity *ClusterProviderAvailableCapacity `json:"availableCapacity,omitempty"`
