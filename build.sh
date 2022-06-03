@@ -2,7 +2,7 @@
 # (C) Copyright 2019-2020 Hewlett Packard Enterprise Development LP
 
 TAG=$1
-SOURCE_API_SPEC="https://raw.githubusercontent.com/hpe-hcss/caas/$TAG/api/openapi-spec/caas-public-api.yaml"
+SOURCE_API_SPEC=$2
 PACKAGE=mcaasapi
 
 BUILD_DIR=build/latest
