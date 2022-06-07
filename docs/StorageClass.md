@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | [optional] [default to null]
+**Id** | **string** |  | [optional] [default to null]
 **Description** | **string** |  | [optional] [default to null]
 **GlStorageType** | **string** |  | [optional] [default to null]
 **AccessProtocol** | **string** |  | [optional] [default to null]
