@@ -11,6 +11,7 @@ package mcaasapi
 
 type StorageClass struct {
 	Name string `json:"name,omitempty"`
+	Id string `json:"id,omitempty"`
 	Description string `json:"description,omitempty"`
 	GlStorageType string `json:"glStorageType,omitempty"`
 	AccessProtocol string `json:"accessProtocol,omitempty"`
