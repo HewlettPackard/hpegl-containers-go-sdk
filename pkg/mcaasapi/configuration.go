@@ -62,7 +62,7 @@ func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		BasePath:      "https://mcaas.intg.hpedevops.net/mcaas",
 		DefaultHeader: make(map[string]string),
-		UserAgent:     "Swagger-Codegen/v0.4.19/go",
+		UserAgent:     "Swagger-Codegen/v0.4.21/go",
 	}
 	return cfg
 }
