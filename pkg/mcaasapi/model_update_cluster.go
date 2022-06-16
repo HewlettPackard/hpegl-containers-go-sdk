@@ -12,5 +12,6 @@ package mcaasapi
 type UpdateCluster struct {
 	Description string `json:"description,omitempty"`
 	K8sVersion string `json:"k8sVersion,omitempty"`
+	KubernetesVersion string `json:"kubernetesVersion,omitempty"`
 	MachineSets []MachineSet `json:"machineSets,omitempty"`
 }
