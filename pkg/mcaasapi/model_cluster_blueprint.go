@@ -19,6 +19,7 @@ type ClusterBlueprint struct {
 	Name string `json:"name,omitempty"`
 	Description string `json:"description,omitempty"`
 	K8sVersion string `json:"k8sVersion,omitempty"`
+	KubernetesVersion string `json:"kubernetesVersion,omitempty"`
 	ClusterProvider string `json:"clusterProvider,omitempty"`
 	MachineSets []MachineSet `json:"machineSets,omitempty"`
 	MachineSetsDetail []MachineSetDetail `json:"machineSetsDetail,omitempty"`

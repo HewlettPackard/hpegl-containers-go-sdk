@@ -20,6 +20,7 @@ type ClusterProvider struct {
 	Id string `json:"id,omitempty"`
 	Name string `json:"name,omitempty"`
 	K8sVersions []string `json:"k8sVersions,omitempty"`
+	KubernetesVersions []string `json:"kubernetesVersions,omitempty"`
 	MinMasterSize *AllOfClusterProviderMinMasterSize `json:"minMasterSize,omitempty"`
 	MinWorkerSize *AllOfClusterProviderMinWorkerSize `json:"minWorkerSize,omitempty"`
 	LicenseInfo *ClusterProviderLicenseInfo `json:"licenseInfo,omitempty"`

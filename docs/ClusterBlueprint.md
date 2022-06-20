@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Name** | **string** |  | [optional] [default to null]
 **Description** | **string** |  | [optional] [default to null]
 **K8sVersion** | **string** |  | [optional] [default to null]
+**KubernetesVersion** | **string** |  | [optional] [default to null]
 **ClusterProvider** | **string** |  | [optional] [default to null]
 **MachineSets** | [**[]MachineSet**](MachineSet.md) |  | [optional] [default to null]
 **MachineSetsDetail** | [**[]MachineSetDetail**](MachineSetDetail.md) |  | [optional] [default to null]

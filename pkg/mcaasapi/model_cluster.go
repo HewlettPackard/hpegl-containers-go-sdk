@@ -24,6 +24,7 @@ type Cluster struct {
 	ClusterBlueprintId string `json:"clusterBlueprintId,omitempty"`
 	ClusterProvider string `json:"clusterProvider,omitempty"`
 	K8sVersion string `json:"k8sVersion,omitempty"`
+	KubernetesVersion string `json:"kubernetesVersion,omitempty"`
 	MachineSets []MachineSet `json:"machineSets,omitempty"`
 	MachineSetsDetail []MachineSetDetail `json:"machineSetsDetail,omitempty"`
 	Utilization *interface{} `json:"utilization,omitempty"`
