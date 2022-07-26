@@ -18,4 +18,5 @@ type Appliance struct {
 	Id string `json:"id,omitempty"`
 	Name string `json:"name,omitempty"`
 	SsoAcsUrl string `json:"ssoAcsUrl,omitempty"`
+	Status string `json:"status,omitempty"`
 }
