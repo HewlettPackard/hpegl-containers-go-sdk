@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Id** | **string** |  | [optional] [default to null]
 **Name** | **string** |  | [optional] [default to null]
 **MachineProvider** | **string** |  | [optional] [default to null]
+**WorkerType** | **string** |  | [optional] [default to null]
 **MachineRoles** | **[]string** |  | [optional] [default to null]
 **OsImage** | **string** |  | [optional] [default to null]
 **OsVersion** | **string** |  | [optional] [default to null]
