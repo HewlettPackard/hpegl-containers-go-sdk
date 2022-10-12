@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**V1ClustersIdStorageclassesGet**](DeveloperApi.md#V1ClustersIdStorageclassesGet) | **Get** /v1/clusters/{id}/storageclasses | Retrieves storage class information of an existing cluster for the current user space in a tenant
 
 # **V1ClustersGet**
-> Clusters V1ClustersGet(ctx, spaceID)
+> Clusters V1ClustersGet(ctx, spaceID, field)
 Retrieve all clusters currently created
 
 Retrieves all clusters currently created for the current tenant 
@@ -21,6 +21,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **spaceID** | [**string**](.md)| space id | 
+  **field** | **string**| field for all query parameters | 
 
 ### Return type
 
@@ -38,7 +39,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **V1ClustersIdGet**
-> Cluster V1ClustersIdGet(ctx, id, spaceID)
+> Cluster V1ClustersIdGet(ctx, id, spaceID, field)
 Retrieves an existing cluster for the current user space in a tenant
 
 Retrieve the specified cluster 
@@ -50,6 +51,7 @@ Name | Type | Description  | Notes
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **id** | [**string**](.md)| cluster id | 
   **spaceID** | [**string**](.md)| Space filter | 
+  **field** | **string**| field for all query parameters | 
 
 ### Return type
 

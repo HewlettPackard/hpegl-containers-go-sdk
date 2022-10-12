@@ -30,9 +30,10 @@ DeveloperApiService Retrieve all clusters currently created
 Retrieves all clusters currently created for the current tenant 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param spaceID space id
+ * @param field field for all query parameters
 @return Clusters
 */
-func (a *DeveloperApiService) V1ClustersGet(ctx context.Context, spaceID string) (Clusters, *http.Response, error) {
+func (a *DeveloperApiService) V1ClustersGet(ctx context.Context, spaceID string, field string) (Clusters, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -49,6 +50,7 @@ func (a *DeveloperApiService) V1ClustersGet(ctx context.Context, spaceID string)
 	localVarFormParams := url.Values{}
 
 	localVarQueryParams.Add("spaceID", parameterToString(spaceID, ""))
+	localVarQueryParams.Add("field", parameterToString(field, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}
 
@@ -136,9 +138,10 @@ Retrieve the specified cluster
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id cluster id
  * @param spaceID Space filter
+ * @param field field for all query parameters
 @return Cluster
 */
-func (a *DeveloperApiService) V1ClustersIdGet(ctx context.Context, id string, spaceID string) (Cluster, *http.Response, error) {
+func (a *DeveloperApiService) V1ClustersIdGet(ctx context.Context, id string, spaceID string, field string) (Cluster, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -156,6 +159,7 @@ func (a *DeveloperApiService) V1ClustersIdGet(ctx context.Context, id string, sp
 	localVarFormParams := url.Values{}
 
 	localVarQueryParams.Add("spaceID", parameterToString(spaceID, ""))
+	localVarQueryParams.Add("field", parameterToString(field, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}
 

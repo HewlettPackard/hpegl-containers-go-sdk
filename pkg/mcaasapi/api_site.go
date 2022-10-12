@@ -29,9 +29,10 @@ SiteApiService Retrive all appliances on which user has access
 Retrive all appliances on which user has access 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param spaceID space id
+ * @param field field for all query parameters
 @return Appliances
 */
-func (a *SiteApiService) V1AppliancesGet(ctx context.Context, spaceID string) (Appliances, *http.Response, error) {
+func (a *SiteApiService) V1AppliancesGet(ctx context.Context, spaceID string, field string) (Appliances, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -48,6 +49,7 @@ func (a *SiteApiService) V1AppliancesGet(ctx context.Context, spaceID string) (A
 	localVarFormParams := url.Values{}
 
 	localVarQueryParams.Add("spaceID", parameterToString(spaceID, ""))
+	localVarQueryParams.Add("field", parameterToString(field, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}
 

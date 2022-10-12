@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**V1AppliancesGet**](SiteApi.md#V1AppliancesGet) | **Get** /v1/appliances | Retrive all appliances on which user has access
 
 # **V1AppliancesGet**
-> Appliances V1AppliancesGet(ctx, spaceID)
+> Appliances V1AppliancesGet(ctx, spaceID, field)
 Retrive all appliances on which user has access
 
 Retrive all appliances on which user has access 
@@ -18,6 +18,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **spaceID** | [**string**](.md)| space id | 
+  **field** | **string**| field for all query parameters | 
 
 ### Return type
 
