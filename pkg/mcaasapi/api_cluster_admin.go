@@ -17,6 +17,7 @@ import (
 	"net/url"
 	"strings"
 	"fmt"
+	"github.com/antihax/optional"
 )
 
 // Linger please
@@ -239,10 +240,11 @@ func (a *ClusterAdminApiService) V1AppliancesIdMachineprovidersGet(ctx context.C
 ClusterAdminApiService Retrieve all cluster blueprints
 Retrieves all cluster blueprints available for the current tenant 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param applianceID appliance id
+ * @param spaceID space id
+ * @param field field for all query parameters
 @return ClusterBlueprints
 */
-func (a *ClusterAdminApiService) V1ClusterblueprintsGet(ctx context.Context, applianceID string) (ClusterBlueprints, *http.Response, error) {
+func (a *ClusterAdminApiService) V1ClusterblueprintsGet(ctx context.Context, spaceID string, field string) (ClusterBlueprints, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -258,7 +260,8 @@ func (a *ClusterAdminApiService) V1ClusterblueprintsGet(ctx context.Context, app
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	localVarQueryParams.Add("applianceID", parameterToString(applianceID, ""))
+	localVarQueryParams.Add("spaceID", parameterToString(spaceID, ""))
+	localVarQueryParams.Add("field", parameterToString(field, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}
 
@@ -453,10 +456,11 @@ ClusterAdminApiService Retrieves an existing cluster blueprint
 Retrieve the specified cluster blueprint for the current tenant 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id cluster blueprint id
- * @param applianceID Appliance filter
+ * @param spaceID Space filter
+ * @param field field for all query parameters
 @return ClusterBlueprint
 */
-func (a *ClusterAdminApiService) V1ClusterblueprintsIdGet(ctx context.Context, id string, applianceID string) (ClusterBlueprint, *http.Response, error) {
+func (a *ClusterAdminApiService) V1ClusterblueprintsIdGet(ctx context.Context, id string, spaceID string, field string) (ClusterBlueprint, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -473,7 +477,8 @@ func (a *ClusterAdminApiService) V1ClusterblueprintsIdGet(ctx context.Context, i
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	localVarQueryParams.Add("applianceID", parameterToString(applianceID, ""))
+	localVarQueryParams.Add("spaceID", parameterToString(spaceID, ""))
+	localVarQueryParams.Add("field", parameterToString(field, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}
 
@@ -696,9 +701,10 @@ ClusterAdminApiService Retrieve all clusters currently created
 Retrieves all clusters currently created for the current tenant 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param spaceID space id
+ * @param field field for all query parameters
 @return Clusters
 */
-func (a *ClusterAdminApiService) V1ClustersGet(ctx context.Context, spaceID string) (Clusters, *http.Response, error) {
+func (a *ClusterAdminApiService) V1ClustersGet(ctx context.Context, spaceID string, field string) (Clusters, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -715,6 +721,7 @@ func (a *ClusterAdminApiService) V1ClustersGet(ctx context.Context, spaceID stri
 	localVarFormParams := url.Values{}
 
 	localVarQueryParams.Add("spaceID", parameterToString(spaceID, ""))
+	localVarQueryParams.Add("field", parameterToString(field, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}
 
@@ -917,9 +924,10 @@ Retrieve the specified cluster
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id cluster id
  * @param spaceID Space filter
+ * @param field field for all query parameters
 @return Cluster
 */
-func (a *ClusterAdminApiService) V1ClustersIdGet(ctx context.Context, id string, spaceID string) (Cluster, *http.Response, error) {
+func (a *ClusterAdminApiService) V1ClustersIdGet(ctx context.Context, id string, spaceID string, field string) (Cluster, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -937,6 +945,7 @@ func (a *ClusterAdminApiService) V1ClustersIdGet(ctx context.Context, id string,
 	localVarFormParams := url.Values{}
 
 	localVarQueryParams.Add("spaceID", parameterToString(spaceID, ""))
+	localVarQueryParams.Add("field", parameterToString(field, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}
 
@@ -1496,9 +1505,18 @@ ClusterAdminApiService Create a new cluster
 Creates a new cluster based on the specified cluster blueprint for the current tenant
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body cluster to create with cluster blueprint reference
+ * @param optional nil or *ClusterAdminApiV1ClustersPostOpts - Optional Parameters:
+     * @param "Imported" (optional.String) -  set to true if existing cluster has to be imported into GL.
+     * @param "Field" (optional.String) -  set \&quot;imported\&quot; to true if existing cluster has to be imported into GL.
 @return Cluster
 */
-func (a *ClusterAdminApiService) V1ClustersPost(ctx context.Context, body CreateCluster) (Cluster, *http.Response, error) {
+
+type ClusterAdminApiV1ClustersPostOpts struct {
+    Imported optional.String
+    Field optional.String
+}
+
+func (a *ClusterAdminApiService) V1ClustersPost(ctx context.Context, body CreateCluster, localVarOptionals *ClusterAdminApiV1ClustersPostOpts) (Cluster, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
@@ -1514,6 +1532,12 @@ func (a *ClusterAdminApiService) V1ClustersPost(ctx context.Context, body Create
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Imported.IsSet() {
+		localVarQueryParams.Add("imported", parameterToString(localVarOptionals.Imported.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Field.IsSet() {
+		localVarQueryParams.Add("field", parameterToString(localVarOptionals.Field.Value(), ""))
+	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{"application/json"}
 
@@ -1621,10 +1645,11 @@ func (a *ClusterAdminApiService) V1ClustersPost(ctx context.Context, body Create
 ClusterAdminApiService Retrieve all machine blueprints
 Retrieves all machine blueprints available for the current tenant 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param applianceID appliance id
+ * @param spaceID space id
+ * @param field field for all query parameters
 @return MachineBlueprints
 */
-func (a *ClusterAdminApiService) V1MachineblueprintsGet(ctx context.Context, applianceID string) (MachineBlueprints, *http.Response, error) {
+func (a *ClusterAdminApiService) V1MachineblueprintsGet(ctx context.Context, spaceID string, field string) (MachineBlueprints, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -1640,7 +1665,8 @@ func (a *ClusterAdminApiService) V1MachineblueprintsGet(ctx context.Context, app
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	localVarQueryParams.Add("applianceID", parameterToString(applianceID, ""))
+	localVarQueryParams.Add("spaceID", parameterToString(spaceID, ""))
+	localVarQueryParams.Add("field", parameterToString(field, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}
 
@@ -1835,10 +1861,11 @@ ClusterAdminApiService Retrieves an existing machine blueprint
 Retrieve the specified machine blueprint for the current tenant 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id machine blueprint id
- * @param applianceID Appliance filter
+ * @param spaceID Space filter
+ * @param field field for all query parameters
 @return MachineBlueprint
 */
-func (a *ClusterAdminApiService) V1MachineblueprintsIdGet(ctx context.Context, id string, applianceID string) (MachineBlueprint, *http.Response, error) {
+func (a *ClusterAdminApiService) V1MachineblueprintsIdGet(ctx context.Context, id string, spaceID string, field string) (MachineBlueprint, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -1855,7 +1882,8 @@ func (a *ClusterAdminApiService) V1MachineblueprintsIdGet(ctx context.Context, i
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	localVarQueryParams.Add("applianceID", parameterToString(applianceID, ""))
+	localVarQueryParams.Add("spaceID", parameterToString(spaceID, ""))
+	localVarQueryParams.Add("field", parameterToString(field, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}
 
