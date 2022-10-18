@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **V1ClusterblueprintsGet**
-> ClusterBlueprints V1ClusterblueprintsGet(ctx, applianceID)
+> ClusterBlueprints V1ClusterblueprintsGet(ctx, spaceID, field)
 Retrieve all cluster blueprints
 
 Retrieves all cluster blueprints available for the current tenant 
@@ -90,7 +90,8 @@ Retrieves all cluster blueprints available for the current tenant
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **applianceID** | [**string**](.md)| appliance id | 
+  **spaceID** | [**string**](.md)| space id | 
+  **field** | **string**| field for all query parameters | 
 
 ### Return type
 
@@ -136,7 +137,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **V1ClusterblueprintsIdGet**
-> ClusterBlueprint V1ClusterblueprintsIdGet(ctx, id, applianceID)
+> ClusterBlueprint V1ClusterblueprintsIdGet(ctx, id, spaceID, field)
 Retrieves an existing cluster blueprint
 
 Retrieve the specified cluster blueprint for the current tenant 
@@ -147,7 +148,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **id** | [**string**](.md)| cluster blueprint id | 
-  **applianceID** | [**string**](.md)| Appliance filter | 
+  **spaceID** | [**string**](.md)| Space filter | 
+  **field** | **string**| field for all query parameters | 
 
 ### Return type
 
@@ -193,7 +195,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **V1ClustersGet**
-> Clusters V1ClustersGet(ctx, spaceID)
+> Clusters V1ClustersGet(ctx, spaceID, field)
 Retrieve all clusters currently created
 
 Retrieves all clusters currently created for the current tenant 
@@ -204,6 +206,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **spaceID** | [**string**](.md)| space id | 
+  **field** | **string**| field for all query parameters | 
 
 ### Return type
 
@@ -249,7 +252,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **V1ClustersIdGet**
-> Cluster V1ClustersIdGet(ctx, id, spaceID)
+> Cluster V1ClustersIdGet(ctx, id, spaceID, field)
 Retrieves an existing cluster for the current user space in a tenant
 
 Retrieve the specified cluster 
@@ -261,6 +264,7 @@ Name | Type | Description  | Notes
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **id** | [**string**](.md)| cluster id | 
   **spaceID** | [**string**](.md)| Space filter | 
+  **field** | **string**| field for all query parameters | 
 
 ### Return type
 
@@ -391,7 +395,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **V1ClustersPost**
-> Cluster V1ClustersPost(ctx, body)
+> Cluster V1ClustersPost(ctx, body, optional)
 Create a new cluster
 
 Creates a new cluster based on the specified cluster blueprint for the current tenant
@@ -402,6 +406,15 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **body** | [**CreateCluster**](CreateCluster.md)| cluster to create with cluster blueprint reference | 
+ **optional** | ***ClusterAdminApiV1ClustersPostOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a ClusterAdminApiV1ClustersPostOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **imported** | **optional.**| set to true if existing cluster has to be imported into GL. | 
+ **field** | **optional.**| set \&quot;imported\&quot; to true if existing cluster has to be imported into GL. | 
 
 ### Return type
 
@@ -419,7 +432,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **V1MachineblueprintsGet**
-> MachineBlueprints V1MachineblueprintsGet(ctx, applianceID)
+> MachineBlueprints V1MachineblueprintsGet(ctx, spaceID, field)
 Retrieve all machine blueprints
 
 Retrieves all machine blueprints available for the current tenant 
@@ -429,7 +442,8 @@ Retrieves all machine blueprints available for the current tenant
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **applianceID** | [**string**](.md)| appliance id | 
+  **spaceID** | [**string**](.md)| space id | 
+  **field** | **string**| field for all query parameters | 
 
 ### Return type
 
@@ -475,7 +489,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **V1MachineblueprintsIdGet**
-> MachineBlueprint V1MachineblueprintsIdGet(ctx, id, applianceID)
+> MachineBlueprint V1MachineblueprintsIdGet(ctx, id, spaceID, field)
 Retrieves an existing machine blueprint
 
 Retrieve the specified machine blueprint for the current tenant 
@@ -486,7 +500,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **id** | [**string**](.md)| machine blueprint id | 
-  **applianceID** | [**string**](.md)| Appliance filter | 
+  **spaceID** | [**string**](.md)| Space filter | 
+  **field** | **string**| field for all query parameters | 
 
 ### Return type
 
