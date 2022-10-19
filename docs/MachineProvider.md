@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **LastUpdateDate** | [**time.Time**](time.Time.md) |  | [optional] [default to null]
 **Id** | **string** |  | [optional] [default to null]
 **Name** | **string** |  | [optional] [default to null]
+**WorkerType** | **string** |  | [optional] [default to null]
 **OsImages** | [**[]OsImages**](OsImages.md) |  | [optional] [default to null]
 **Networks** | **[]string** |  | [optional] [default to null]
 **ComputeInstanceTypes** | [**[]ComputeInstanceTypes**](ComputeInstanceTypes.md) |  | [optional] [default to null]

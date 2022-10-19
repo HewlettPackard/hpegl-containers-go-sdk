@@ -16,6 +16,7 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"github.com/antihax/optional"
 )
 
 // Linger please
@@ -28,10 +29,17 @@ type SiteApiService service
 SiteApiService Retrive all appliances on which user has access
 Retrive all appliances on which user has access 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param spaceID space id
+ * @param field field for all query parameters
+ * @param optional nil or *SiteApiV1AppliancesGetOpts - Optional Parameters:
+     * @param "SpaceID" (optional.Interface of string) -  space id
 @return Appliances
 */
-func (a *SiteApiService) V1AppliancesGet(ctx context.Context, spaceID string) (Appliances, *http.Response, error) {
+
+type SiteApiV1AppliancesGetOpts struct {
+    SpaceID optional.Interface
+}
+
+func (a *SiteApiService) V1AppliancesGet(ctx context.Context, field string, localVarOptionals *SiteApiV1AppliancesGetOpts) (Appliances, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -47,7 +55,10 @@ func (a *SiteApiService) V1AppliancesGet(ctx context.Context, spaceID string) (A
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	localVarQueryParams.Add("spaceID", parameterToString(spaceID, ""))
+	if localVarOptionals != nil && localVarOptionals.SpaceID.IsSet() {
+		localVarQueryParams.Add("spaceID", parameterToString(localVarOptionals.SpaceID.Value(), ""))
+	}
+	localVarQueryParams.Add("field", parameterToString(field, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}
 

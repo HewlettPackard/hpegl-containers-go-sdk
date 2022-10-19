@@ -10,8 +10,8 @@
 package mcaasapi
 
 type BadRequestError struct {
+	HttpStatusCode int32 `json:"httpStatusCode,omitempty"`
 	Message string `json:"message,omitempty"`
-	Details string `json:"details,omitempty"`
-	RecommendedActions []string `json:"recommendedActions,omitempty"`
+	DebugId string `json:"debugId,omitempty"`
 	ErrorCode string `json:"errorCode,omitempty"`
 }
