@@ -19,6 +19,7 @@ type MachineProvider struct {
 	LastUpdateDate time.Time `json:"lastUpdateDate,omitempty"`
 	Id string `json:"id,omitempty"`
 	Name string `json:"name,omitempty"`
+	WorkerType string `json:"workerType,omitempty"`
 	OsImages []OsImages `json:"osImages,omitempty"`
 	Networks []string `json:"networks,omitempty"`
 	ComputeInstanceTypes []ComputeInstanceTypes `json:"computeInstanceTypes,omitempty"`

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**V1ClustersIdStorageclassesGet**](DeveloperApi.md#V1ClustersIdStorageclassesGet) | **Get** /v1/clusters/{id}/storageclasses | Retrieves storage class information of an existing cluster for the current user space in a tenant
 
 # **V1ClustersGet**
-> Clusters V1ClustersGet(ctx, spaceID)
+> Clusters V1ClustersGet(ctx, field, optional)
 Retrieve all clusters currently created
 
 Retrieves all clusters currently created for the current tenant 
@@ -20,7 +20,15 @@ Retrieves all clusters currently created for the current tenant
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **spaceID** | [**string**](.md)| space id | 
+  **field** | **string**| field for all query parameters | 
+ **optional** | ***DeveloperApiV1ClustersGetOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a DeveloperApiV1ClustersGetOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **spaceID** | [**optional.Interface of string**](.md)| space id | 
 
 ### Return type
 
@@ -38,7 +46,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **V1ClustersIdGet**
-> Cluster V1ClustersIdGet(ctx, id, spaceID)
+> Cluster V1ClustersIdGet(ctx, id, field, optional)
 Retrieves an existing cluster for the current user space in a tenant
 
 Retrieve the specified cluster 
@@ -49,7 +57,16 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **id** | [**string**](.md)| cluster id | 
-  **spaceID** | [**string**](.md)| Space filter | 
+  **field** | **string**| field for all query parameters | 
+ **optional** | ***DeveloperApiV1ClustersIdGetOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a DeveloperApiV1ClustersIdGetOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **spaceID** | [**optional.Interface of string**](.md)| Space filter | 
 
 ### Return type
 

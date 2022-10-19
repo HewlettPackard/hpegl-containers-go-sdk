@@ -1,4 +1,4 @@
-# NotFoundError
+# ConflictError
 
 ## Properties
 Name | Type | Description | Notes

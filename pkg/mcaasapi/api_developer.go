@@ -17,6 +17,7 @@ import (
 	"net/url"
 	"strings"
 	"fmt"
+	"github.com/antihax/optional"
 )
 
 // Linger please
@@ -29,10 +30,17 @@ type DeveloperApiService service
 DeveloperApiService Retrieve all clusters currently created
 Retrieves all clusters currently created for the current tenant 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param spaceID space id
+ * @param field field for all query parameters
+ * @param optional nil or *DeveloperApiV1ClustersGetOpts - Optional Parameters:
+     * @param "SpaceID" (optional.Interface of string) -  space id
 @return Clusters
 */
-func (a *DeveloperApiService) V1ClustersGet(ctx context.Context, spaceID string) (Clusters, *http.Response, error) {
+
+type DeveloperApiV1ClustersGetOpts struct {
+    SpaceID optional.Interface
+}
+
+func (a *DeveloperApiService) V1ClustersGet(ctx context.Context, field string, localVarOptionals *DeveloperApiV1ClustersGetOpts) (Clusters, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -48,7 +56,10 @@ func (a *DeveloperApiService) V1ClustersGet(ctx context.Context, spaceID string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	localVarQueryParams.Add("spaceID", parameterToString(spaceID, ""))
+	if localVarOptionals != nil && localVarOptionals.SpaceID.IsSet() {
+		localVarQueryParams.Add("spaceID", parameterToString(localVarOptionals.SpaceID.Value(), ""))
+	}
+	localVarQueryParams.Add("field", parameterToString(field, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}
 
@@ -135,10 +146,17 @@ DeveloperApiService Retrieves an existing cluster for the current user space in 
 Retrieve the specified cluster 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id cluster id
- * @param spaceID Space filter
+ * @param field field for all query parameters
+ * @param optional nil or *DeveloperApiV1ClustersIdGetOpts - Optional Parameters:
+     * @param "SpaceID" (optional.Interface of string) -  Space filter
 @return Cluster
 */
-func (a *DeveloperApiService) V1ClustersIdGet(ctx context.Context, id string, spaceID string) (Cluster, *http.Response, error) {
+
+type DeveloperApiV1ClustersIdGetOpts struct {
+    SpaceID optional.Interface
+}
+
+func (a *DeveloperApiService) V1ClustersIdGet(ctx context.Context, id string, field string, localVarOptionals *DeveloperApiV1ClustersIdGetOpts) (Cluster, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -155,7 +173,10 @@ func (a *DeveloperApiService) V1ClustersIdGet(ctx context.Context, id string, sp
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	localVarQueryParams.Add("spaceID", parameterToString(spaceID, ""))
+	if localVarOptionals != nil && localVarOptionals.SpaceID.IsSet() {
+		localVarQueryParams.Add("spaceID", parameterToString(localVarOptionals.SpaceID.Value(), ""))
+	}
+	localVarQueryParams.Add("field", parameterToString(field, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}
 

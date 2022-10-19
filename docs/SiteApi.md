@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**V1AppliancesGet**](SiteApi.md#V1AppliancesGet) | **Get** /v1/appliances | Retrive all appliances on which user has access
 
 # **V1AppliancesGet**
-> Appliances V1AppliancesGet(ctx, spaceID)
+> Appliances V1AppliancesGet(ctx, field, optional)
 Retrive all appliances on which user has access
 
 Retrive all appliances on which user has access 
@@ -17,7 +17,15 @@ Retrive all appliances on which user has access
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **spaceID** | [**string**](.md)| space id | 
+  **field** | **string**| field for all query parameters | 
+ **optional** | ***SiteApiV1AppliancesGetOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a SiteApiV1AppliancesGetOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **spaceID** | [**optional.Interface of string**](.md)| space id | 
 
 ### Return type
 
