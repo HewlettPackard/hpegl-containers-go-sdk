@@ -9,9 +9,10 @@
  */
 package mcaasapi
 
-type ClusterProviderAvailableCapacity struct {
-	Cpu float64 `json:"cpu,omitempty"`
-	Nodes float64 `json:"nodes,omitempty"`
-	Clusters float64 `json:"clusters,omitempty"`
-	Summary string `json:"summary,omitempty"`
-}
+type MachineWorkerType string
+
+// List of MachineWorkerType
+const (
+	VIRTUAL_MachineWorkerType MachineWorkerType = "Virtual"
+	PHYSICAL_MachineWorkerType MachineWorkerType = "Physical"
+)

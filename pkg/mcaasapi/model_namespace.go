@@ -20,4 +20,5 @@ type Namespace struct {
 	ApplianceID string `json:"applianceID,omitempty"`
 	ClusterID string `json:"clusterID,omitempty"`
 	TenantID string `json:"tenantID,omitempty"`
+	ResourceQuota []ResourceQuota `json:"resourceQuota,omitempty"`
 }

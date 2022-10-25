@@ -9,9 +9,8 @@
  */
 package mcaasapi
 
-type ClusterProviderAvailableCapacity struct {
-	Cpu float64 `json:"cpu,omitempty"`
-	Nodes float64 `json:"nodes,omitempty"`
-	Clusters float64 `json:"clusters,omitempty"`
-	Summary string `json:"summary,omitempty"`
+type ClusterUtilization struct {
+	AvgCpu string `json:"avgCpu,omitempty"`
+	AvgMemory string `json:"avgMemory,omitempty"`
+	TotalPersistentStorage string `json:"totalPersistentStorage,omitempty"`
 }

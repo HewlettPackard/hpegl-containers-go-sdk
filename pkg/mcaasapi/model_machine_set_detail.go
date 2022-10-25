@@ -16,7 +16,7 @@ type MachineSetDetail struct {
 	OsImage string `json:"osImage,omitempty"`
 	OsVersion string `json:"osVersion,omitempty"`
 	Count float64 `json:"count,omitempty"`
-	MachineRoles []string `json:"machineRoles,omitempty"`
+	MachineRoles []MachineRolesType `json:"machineRoles,omitempty"`
 	MachineProvider string `json:"machineProvider,omitempty"`
 	Size string `json:"size,omitempty"`
 	SizeDetail *AllOfMachineSetDetailSizeDetail `json:"sizeDetail,omitempty"`
