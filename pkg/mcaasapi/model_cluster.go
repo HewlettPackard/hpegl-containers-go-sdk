@@ -19,6 +19,7 @@ type Cluster struct {
 	LastUpdateDate time.Time `json:"lastUpdateDate,omitempty"`
 	Id string `json:"id,omitempty"`
 	Name string `json:"name,omitempty"`
+	Description string `json:"description,omitempty"`
 	ErrorCode string `json:"errorCode,omitempty"`
 	ErrorMessage string `json:"errorMessage,omitempty"`
 	ClusterBlueprintId string `json:"clusterBlueprintId,omitempty"`
@@ -27,7 +28,7 @@ type Cluster struct {
 	KubernetesVersion string `json:"kubernetesVersion,omitempty"`
 	MachineSets []MachineSet `json:"machineSets,omitempty"`
 	MachineSetsDetail []MachineSetDetail `json:"machineSetsDetail,omitempty"`
-	Utilization *interface{} `json:"utilization,omitempty"`
+	Utilization *ClusterUtilization `json:"utilization,omitempty"`
 	ApiEndpoint string `json:"apiEndpoint,omitempty"`
 	ServiceEndpoints []ServiceEndpoints `json:"serviceEndpoints,omitempty"`
 	ApplianceID string `json:"applianceID,omitempty"`
@@ -35,5 +36,5 @@ type Cluster struct {
 	SpaceID string `json:"spaceID,omitempty"`
 	DefaultStorageClass string `json:"defaultStorageClass,omitempty"`
 	DefaultStorageClassDescription string `json:"defaultStorageClassDescription,omitempty"`
-	ProviderData *interface{} `json:"providerData,omitempty"`
+	ProviderData *ClusterProviderData `json:"providerData,omitempty"`
 }

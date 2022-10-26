@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **OsImage** | **string** |  | [optional] [default to null]
 **OsVersion** | **string** |  | [optional] [default to null]
 **Count** | **float64** |  | [optional] [default to null]
-**MachineRoles** | **[]string** |  | [optional] [default to null]
+**MachineRoles** | [**[]MachineRolesType**](MachineRolesType.md) |  | [optional] [default to null]
 **MachineProvider** | **string** |  | [optional] [default to null]
 **Size** | **string** |  | [optional] [default to null]
 **SizeDetail** | [***AllOfMachineSetDetailSizeDetail**](AllOfMachineSetDetailSizeDetail.md) |  | [optional] [default to null]

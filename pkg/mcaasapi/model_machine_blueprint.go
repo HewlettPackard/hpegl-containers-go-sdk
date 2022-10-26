@@ -18,8 +18,8 @@ type MachineBlueprint struct {
 	Id string `json:"id,omitempty"`
 	Name string `json:"name,omitempty"`
 	MachineProvider string `json:"machineProvider,omitempty"`
-	WorkerType string `json:"workerType,omitempty"`
-	MachineRoles []string `json:"machineRoles,omitempty"`
+	WorkerType *MachineWorkerType `json:"workerType,omitempty"`
+	MachineRoles []MachineRolesType `json:"machineRoles,omitempty"`
 	OsImage string `json:"osImage,omitempty"`
 	OsVersion string `json:"osVersion,omitempty"`
 	Size string `json:"size,omitempty"`

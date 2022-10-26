@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **MachineSetsDetail** | [**[]MachineSetDetail**](MachineSetDetail.md) |  | [optional] [default to null]
 **ApplianceID** | **string** |  | [optional] [default to null]
 **DefaultStorageClass** | **string** |  | [optional] [default to null]
+**ControlPlaneCount** | **int32** |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

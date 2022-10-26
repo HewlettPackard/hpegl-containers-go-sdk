@@ -25,4 +25,5 @@ type ClusterBlueprint struct {
 	MachineSetsDetail []MachineSetDetail `json:"machineSetsDetail,omitempty"`
 	ApplianceID string `json:"applianceID,omitempty"`
 	DefaultStorageClass string `json:"defaultStorageClass,omitempty"`
+	ControlPlaneCount int32 `json:"controlPlaneCount,omitempty"`
 }
