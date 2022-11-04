@@ -1,27 +1,27 @@
 # {{classname}}
 
-All URIs are relative to *https://mcaas.intg.hpedevops.net/mcaas*
+All URIs are relative to *https://mcaas.us1.greenlake-hpe.com/mcaas*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**V1AppliancesGet**](SiteApi.md#V1AppliancesGet) | **Get** /v1/appliances | Retrive all appliances on which user has access
+[**V1AppliancesIdClusterprovidersGet**](ClusterProvidersApi.md#V1AppliancesIdClusterprovidersGet) | **Get** /v1/appliances/{id}/clusterproviders | Gets all Cluster Providers
 
-# **V1AppliancesGet**
-> Appliances V1AppliancesGet(ctx, field)
-Retrive all appliances on which user has access
+# **V1AppliancesIdClusterprovidersGet**
+> ClusterProviders V1AppliancesIdClusterprovidersGet(ctx, id)
+Gets all Cluster Providers
 
-Retrive all appliances on which user has access 
+Retrive all cluster providers for the current appliance 
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **field** | **string**| field for all query parameters | 
+  **id** | [**string**](.md)| appliance id | 
 
 ### Return type
 
-[**Appliances**](Appliances.md)
+[**ClusterProviders**](ClusterProviders.md)
 
 ### Authorization
 
