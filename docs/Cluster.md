@@ -5,6 +5,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **State** | **string** |  | [optional] [default to null]
 **Health** | **string** |  | [optional] [default to null]
+**UserID** | **string** |  | [optional] [default to null]
+**UserDisplayName** | **string** |  | [optional] [default to null]
+**UserName** | **string** |  | [optional] [default to null]
 **CreatedDate** | [**time.Time**](time.Time.md) |  | [optional] [default to null]
 **LastUpdateDate** | [**time.Time**](time.Time.md) |  | [optional] [default to null]
 **Id** | **string** |  | [optional] [default to null]
