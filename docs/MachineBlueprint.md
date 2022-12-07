@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **LastUpdateDate** | [**time.Time**](time.Time.md) |  | [optional] [default to null]
 **Id** | **string** |  | [optional] [default to null]
 **Name** | **string** |  | [optional] [default to null]
-**MachineProvider** | **string** |  | [optional] [default to null]
+**MachineProvider** | **string** | machine provider name | [optional] [default to null]
 **WorkerType** | [***MachineWorkerType**](MachineWorkerType.md) |  | [optional] [default to null]
 **MachineRoles** | [**[]MachineRolesType**](MachineRolesType.md) |  | [optional] [default to null]
 **OsImage** | **string** |  | [optional] [default to null]
