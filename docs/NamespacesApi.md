@@ -1,27 +1,27 @@
 # {{classname}}
 
-All URIs are relative to *https://mcaas.intg.hpedevops.net/mcaas*
+All URIs are relative to *https://mcaas.us1.greenlake-hpe.com/mcaas*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**V1AppliancesGet**](SiteApi.md#V1AppliancesGet) | **Get** /v1/appliances | Retrive all appliances on which user has access
+[**V1ClustersIdNamespacesGet**](NamespacesApi.md#V1ClustersIdNamespacesGet) | **Get** /v1/clusters/{id}/namespaces | Gets all Namespaces for Cluster
 
-# **V1AppliancesGet**
-> Appliances V1AppliancesGet(ctx, field)
-Retrive all appliances on which user has access
+# **V1ClustersIdNamespacesGet**
+> Namespaces V1ClustersIdNamespacesGet(ctx, id)
+Gets all Namespaces for Cluster
 
-Retrive all appliances on which user has access 
+Retrieve namespaces from specified cluster  **Required Permissions to access the API**:    - caas.cluster.read  **Default Roles which can access the API**:    - Private Cloud Cluster Owner    - Private Cloud Resource Contributor 
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **field** | **string**| field for all query parameters | 
+  **id** | [**string**](.md)| cluster id | 
 
 ### Return type
 
-[**Appliances**](Appliances.md)
+[**Namespaces**](Namespaces.md)
 
 ### Authorization
 
