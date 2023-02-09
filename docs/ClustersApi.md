@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**V1ClustersPost**](ClustersApi.md#V1ClustersPost) | **Post** /v1/clusters | Create a Cluster
 
 # **V1ClustersGet**
-> Clusters V1ClustersGet(ctx, field, optional)
+> Clusters V1ClustersGet(ctx, field)
 Gets all Clusters
 
 Retrieves all clusters currently created for the current tenant.  **Required Permissions to access the API**:    - caas.cluster.read  **Default Roles which can access the API**:    - Private Cloud Cluster Owner    - Private Cloud Resource Contributor 
@@ -22,14 +22,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **field** | **string**| field for all query parameters | 
- **optional** | ***ClustersApiV1ClustersGetOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a ClustersApiV1ClustersGetOpts struct
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **spaceID** | [**optional.Interface of string**](.md)| space id | 
 
 ### Return type
 
@@ -47,7 +39,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **V1ClustersIdDelete**
-> V1ClustersIdDelete(ctx, id)
+> EmptyBody V1ClustersIdDelete(ctx, id)
 Deletes a Cluster
 
 Delete the specified cluster  **Required Permissions to access the API**:    - caas.cluster.delete  **Default Roles which can access the API**:    - Private Cloud Cluster Owner 
@@ -61,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**EmptyBody**](EmptyBody.md)
 
 ### Authorization
 
@@ -75,7 +67,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **V1ClustersIdGet**
-> Cluster V1ClustersIdGet(ctx, id, field, optional)
+> Cluster V1ClustersIdGet(ctx, id, field)
 Get a specific Cluster
 
 Retrieve the specified cluster  **Required Permissions to access the API**:    - caas.cluster.read  **Default Roles which can access the API**:    - Private Cloud Cluster Owner    - Private Cloud Resource Contributor 
@@ -87,15 +79,6 @@ Name | Type | Description  | Notes
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **id** | [**string**](.md)| cluster id | 
   **field** | **string**| field for all query parameters | 
- **optional** | ***ClustersApiV1ClustersIdGetOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a ClustersApiV1ClustersIdGetOpts struct
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
- **spaceID** | [**optional.Interface of string**](.md)| Space filter | 
 
 ### Return type
 

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**V1MachineblueprintsPost**](MachineBlueprintsApi.md#V1MachineblueprintsPost) | **Post** /v1/machineblueprints | Create a Machine Blueprint
 
 # **V1MachineblueprintsGet**
-> MachineBlueprints V1MachineblueprintsGet(ctx, field, optional)
+> MachineBlueprints V1MachineblueprintsGet(ctx, field)
 Gets all Machine Blueprints
 
 Retrieves all machine blueprints available for the current tenant  **Required Permissions to access the API**:    - caas.cluster.create  **Default Roles which can access the API**:    - Private Cloud Cluster Owner 
@@ -21,14 +21,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **field** | **string**| field for all query parameters | 
- **optional** | ***MachineBlueprintsApiV1MachineblueprintsGetOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a MachineBlueprintsApiV1MachineblueprintsGetOpts struct
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **applianceID** | [**optional.Interface of string**](.md)| ApplianceID | 
 
 ### Return type
 
@@ -74,7 +66,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **V1MachineblueprintsIdGet**
-> MachineBlueprint V1MachineblueprintsIdGet(ctx, id, field, optional)
+> MachineBlueprint V1MachineblueprintsIdGet(ctx, id, field)
 Gets a specific Machine Blueprint
 
 Retrieve the specified machine blueprint for the current tenant  **Required Permissions to access the API**:    - caas.cluster.create  **Default Roles which can access the API**:    - Private Cloud Cluster Owner 
@@ -86,15 +78,6 @@ Name | Type | Description  | Notes
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **id** | [**string**](.md)| machine blueprint id | 
   **field** | **string**| field for all query parameters | 
- **optional** | ***MachineBlueprintsApiV1MachineblueprintsIdGetOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a MachineBlueprintsApiV1MachineblueprintsIdGetOpts struct
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
- **spaceID** | [**optional.Interface of string**](.md)| Space filter | 
 
 ### Return type
 

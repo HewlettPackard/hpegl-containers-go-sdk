@@ -16,7 +16,6 @@ import (
 	"net/url"
 	"strings"
 	"fmt"
-	"github.com/antihax/optional"
 )
 
 // Linger please
@@ -30,16 +29,9 @@ MachineBlueprintsApiService Gets all Machine Blueprints
 Retrieves all machine blueprints available for the current tenant  **Required Permissions to access the API**:    - caas.cluster.create  **Default Roles which can access the API**:    - Private Cloud Cluster Owner 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param field field for all query parameters
- * @param optional nil or *MachineBlueprintsApiV1MachineblueprintsGetOpts - Optional Parameters:
-     * @param "ApplianceID" (optional.Interface of string) -  ApplianceID
 @return MachineBlueprints
 */
-
-type MachineBlueprintsApiV1MachineblueprintsGetOpts struct {
-    ApplianceID optional.Interface
-}
-
-func (a *MachineBlueprintsApiService) V1MachineblueprintsGet(ctx context.Context, field string, localVarOptionals *MachineBlueprintsApiV1MachineblueprintsGetOpts) (MachineBlueprints, *http.Response, error) {
+func (a *MachineBlueprintsApiService) V1MachineblueprintsGet(ctx context.Context, field string) (MachineBlueprints, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -55,9 +47,6 @@ func (a *MachineBlueprintsApiService) V1MachineblueprintsGet(ctx context.Context
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if localVarOptionals != nil && localVarOptionals.ApplianceID.IsSet() {
-		localVarQueryParams.Add("applianceID", parameterToString(localVarOptionals.ApplianceID.Value(), ""))
-	}
 	localVarQueryParams.Add("field", parameterToString(field, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}
@@ -254,16 +243,9 @@ Retrieve the specified machine blueprint for the current tenant  **Required Perm
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id machine blueprint id
  * @param field field for all query parameters
- * @param optional nil or *MachineBlueprintsApiV1MachineblueprintsIdGetOpts - Optional Parameters:
-     * @param "SpaceID" (optional.Interface of string) -  Space filter
 @return MachineBlueprint
 */
-
-type MachineBlueprintsApiV1MachineblueprintsIdGetOpts struct {
-    SpaceID optional.Interface
-}
-
-func (a *MachineBlueprintsApiService) V1MachineblueprintsIdGet(ctx context.Context, id string, field string, localVarOptionals *MachineBlueprintsApiV1MachineblueprintsIdGetOpts) (MachineBlueprint, *http.Response, error) {
+func (a *MachineBlueprintsApiService) V1MachineblueprintsIdGet(ctx context.Context, id string, field string) (MachineBlueprint, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -280,9 +262,6 @@ func (a *MachineBlueprintsApiService) V1MachineblueprintsIdGet(ctx context.Conte
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if localVarOptionals != nil && localVarOptionals.SpaceID.IsSet() {
-		localVarQueryParams.Add("spaceID", parameterToString(localVarOptionals.SpaceID.Value(), ""))
-	}
 	localVarQueryParams.Add("field", parameterToString(field, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}

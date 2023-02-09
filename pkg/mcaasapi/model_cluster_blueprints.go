@@ -9,7 +9,7 @@
 package mcaasapi
 
 type ClusterBlueprints struct {
-	Count int32 `json:"count,omitempty"`
-	Total int32 `json:"total,omitempty"`
-	Items []ClusterBlueprint `json:"items,omitempty"`
+	Count int32 `json:"count"`
+	Total int32 `json:"total"`
+	Items []ClusterBlueprint `json:"items"`
 }

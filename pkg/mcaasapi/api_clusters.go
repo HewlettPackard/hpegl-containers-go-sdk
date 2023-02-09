@@ -16,7 +16,6 @@ import (
 	"net/url"
 	"strings"
 	"fmt"
-	"github.com/antihax/optional"
 )
 
 // Linger please
@@ -30,16 +29,9 @@ ClustersApiService Gets all Clusters
 Retrieves all clusters currently created for the current tenant.  **Required Permissions to access the API**:    - caas.cluster.read  **Default Roles which can access the API**:    - Private Cloud Cluster Owner    - Private Cloud Resource Contributor 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param field field for all query parameters
- * @param optional nil or *ClustersApiV1ClustersGetOpts - Optional Parameters:
-     * @param "SpaceID" (optional.Interface of string) -  space id
 @return Clusters
 */
-
-type ClustersApiV1ClustersGetOpts struct {
-    SpaceID optional.Interface
-}
-
-func (a *ClustersApiService) V1ClustersGet(ctx context.Context, field string, localVarOptionals *ClustersApiV1ClustersGetOpts) (Clusters, *http.Response, error) {
+func (a *ClustersApiService) V1ClustersGet(ctx context.Context, field string) (Clusters, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -55,9 +47,6 @@ func (a *ClustersApiService) V1ClustersGet(ctx context.Context, field string, lo
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if localVarOptionals != nil && localVarOptionals.SpaceID.IsSet() {
-		localVarQueryParams.Add("spaceID", parameterToString(localVarOptionals.SpaceID.Value(), ""))
-	}
 	localVarQueryParams.Add("field", parameterToString(field, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}
@@ -145,15 +134,15 @@ ClustersApiService Deletes a Cluster
 Delete the specified cluster  **Required Permissions to access the API**:    - caas.cluster.delete  **Default Roles which can access the API**:    - Private Cloud Cluster Owner 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id cluster id
-
+@return EmptyBody
 */
-func (a *ClustersApiService) V1ClustersIdDelete(ctx context.Context, id string) (*http.Response, error) {
+func (a *ClustersApiService) V1ClustersIdDelete(ctx context.Context, id string) (EmptyBody, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		
+		localVarReturnValue EmptyBody
 	)
 
 	// create path and map variables
@@ -183,60 +172,77 @@ func (a *ClustersApiService) V1ClustersIdDelete(ctx context.Context, id string) 
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return localVarReturnValue, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
 	localVarHttpResponse.Body.Close()
 	if err != nil {
-		return localVarHttpResponse, err
+		return localVarReturnValue, localVarHttpResponse, err
 	}
 
+	if localVarHttpResponse.StatusCode < 300 {
+		// If we succeed, return the data, otherwise pass on to decode error.
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
+		if localVarHttpResponse.StatusCode == 202 {
+			var v EmptyBody
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
 		if localVarHttpResponse.StatusCode == 401 {
 			var v AuthenticationError
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, newErr
 				}
 				newErr.model = v
-				return localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 404 {
 			var v NotFoundError
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, newErr
 				}
 				newErr.model = v
-				return localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 500 {
 			var v InternalError
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
-					return localVarHttpResponse, newErr
+					return localVarReturnValue, localVarHttpResponse, newErr
 				}
 				newErr.model = v
-				return localVarHttpResponse, newErr
+				return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		return localVarHttpResponse, newErr
+		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
-	return localVarHttpResponse, nil
+	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
 ClustersApiService Get a specific Cluster
@@ -244,16 +250,9 @@ Retrieve the specified cluster  **Required Permissions to access the API**:    -
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id cluster id
  * @param field field for all query parameters
- * @param optional nil or *ClustersApiV1ClustersIdGetOpts - Optional Parameters:
-     * @param "SpaceID" (optional.Interface of string) -  Space filter
 @return Cluster
 */
-
-type ClustersApiV1ClustersIdGetOpts struct {
-    SpaceID optional.Interface
-}
-
-func (a *ClustersApiService) V1ClustersIdGet(ctx context.Context, id string, field string, localVarOptionals *ClustersApiV1ClustersIdGetOpts) (Cluster, *http.Response, error) {
+func (a *ClustersApiService) V1ClustersIdGet(ctx context.Context, id string, field string) (Cluster, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -270,9 +269,6 @@ func (a *ClustersApiService) V1ClustersIdGet(ctx context.Context, id string, fie
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if localVarOptionals != nil && localVarOptionals.SpaceID.IsSet() {
-		localVarQueryParams.Add("spaceID", parameterToString(localVarOptionals.SpaceID.Value(), ""))
-	}
 	localVarQueryParams.Add("field", parameterToString(field, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}
