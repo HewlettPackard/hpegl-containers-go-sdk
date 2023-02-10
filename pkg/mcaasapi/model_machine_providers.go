@@ -9,7 +9,7 @@
 package mcaasapi
 
 type MachineProviders struct {
-	Count int32 `json:"count,omitempty"`
-	Total int32 `json:"total,omitempty"`
-	Items []MachineProvider `json:"items,omitempty"`
+	Count int32 `json:"count"`
+	Total int32 `json:"total"`
+	Items []MachineProvider `json:"items"`
 }

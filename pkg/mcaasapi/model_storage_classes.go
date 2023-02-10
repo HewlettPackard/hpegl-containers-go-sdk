@@ -9,7 +9,7 @@
 package mcaasapi
 
 type StorageClasses struct {
-	Count int32 `json:"count,omitempty"`
-	Total int32 `json:"total,omitempty"`
-	Items []StorageClass `json:"items,omitempty"`
+	Count int32 `json:"count"`
+	Total int32 `json:"total"`
+	Items []StorageClass `json:"items"`
 }

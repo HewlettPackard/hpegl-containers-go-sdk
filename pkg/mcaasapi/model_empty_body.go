@@ -8,8 +8,5 @@
  */
 package mcaasapi
 
-type MachineBlueprints struct {
-	Count int32 `json:"count"`
-	Total int32 `json:"total"`
-	Items []MachineBlueprint `json:"items"`
+type EmptyBody struct {
 }

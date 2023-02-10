@@ -15,7 +15,6 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
-	"github.com/antihax/optional"
 )
 
 // Linger please
@@ -29,16 +28,9 @@ SitesApiService Gets all Sites
 Retrieve all appliances on which user has access  **Required Permissions to access the API**:    Any of:    - caas.cluster.create    - caas.cluster.manage    - caas.cluster-resource.manage\&quot;  **Default Roles which can access the API**:    - Private Cloud Cluster Owner    - Private Cloud Resource Contributor 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param field field for all query parameters
- * @param optional nil or *SitesApiV1AppliancesGetOpts - Optional Parameters:
-     * @param "SpaceID" (optional.Interface of string) -  space id
 @return Appliances
 */
-
-type SitesApiV1AppliancesGetOpts struct {
-    SpaceID optional.Interface
-}
-
-func (a *SitesApiService) V1AppliancesGet(ctx context.Context, field string, localVarOptionals *SitesApiV1AppliancesGetOpts) (Appliances, *http.Response, error) {
+func (a *SitesApiService) V1AppliancesGet(ctx context.Context, field string) (Appliances, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -54,9 +46,6 @@ func (a *SitesApiService) V1AppliancesGet(ctx context.Context, field string, loc
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if localVarOptionals != nil && localVarOptionals.SpaceID.IsSet() {
-		localVarQueryParams.Add("spaceID", parameterToString(localVarOptionals.SpaceID.Value(), ""))
-	}
 	localVarQueryParams.Add("field", parameterToString(field, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}

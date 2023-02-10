@@ -9,9 +9,9 @@
 package mcaasapi
 
 type InternalError struct {
-	HttpStatusCode int32 `json:"httpStatusCode,omitempty"`
-	Message string `json:"message,omitempty"`
-	DebugId string `json:"debugId,omitempty"`
-	ErrorCode string `json:"errorCode,omitempty"`
+	HttpStatusCode int32 `json:"httpStatusCode"`
+	Message string `json:"message"`
+	DebugId string `json:"debugId"`
+	ErrorCode string `json:"errorCode"`
 	ErrorDetails *interface{} `json:"errorDetails,omitempty"`
 }

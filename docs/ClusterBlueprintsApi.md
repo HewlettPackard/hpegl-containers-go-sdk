@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**V1ClusterblueprintsPost**](ClusterBlueprintsApi.md#V1ClusterblueprintsPost) | **Post** /v1/clusterblueprints | Creates a Cluster Blueprint
 
 # **V1ClusterblueprintsGet**
-> ClusterBlueprints V1ClusterblueprintsGet(ctx, field, optional)
+> ClusterBlueprints V1ClusterblueprintsGet(ctx, field)
 Gets all Cluster Blueprints
 
 Retrieves all cluster blueprints available for the current tenant  **Required Permissions to access the API**:    - caas.cluster.create  **Default Roles which can access the API**:    - Private Cloud Cluster Owner 
@@ -21,14 +21,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **field** | **string**| field for all query parameters | 
- **optional** | ***ClusterBlueprintsApiV1ClusterblueprintsGetOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a ClusterBlueprintsApiV1ClusterblueprintsGetOpts struct
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **applianceID** | [**optional.Interface of string**](.md)| applianceID | 
 
 ### Return type
 
@@ -74,7 +66,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **V1ClusterblueprintsIdGet**
-> ClusterBlueprint V1ClusterblueprintsIdGet(ctx, id, field, optional)
+> ClusterBlueprint V1ClusterblueprintsIdGet(ctx, id, field)
 Gets a specific Cluster Blueprint
 
 Retrieve the specified cluster blueprint for the current tenant  **Required Permissions to access the API**:    - caas.cluster.create  **Default Roles which can access the API**:    - Private Cloud Cluster Owner 
@@ -86,15 +78,6 @@ Name | Type | Description  | Notes
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **id** | [**string**](.md)| cluster blueprint id | 
   **field** | **string**| field for all query parameters | 
- **optional** | ***ClusterBlueprintsApiV1ClusterblueprintsIdGetOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a ClusterBlueprintsApiV1ClusterblueprintsIdGetOpts struct
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
- **spaceID** | [**optional.Interface of string**](.md)| Space filter | 
 
 ### Return type
 

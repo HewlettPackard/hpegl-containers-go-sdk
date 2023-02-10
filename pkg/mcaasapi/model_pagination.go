@@ -9,6 +9,6 @@
 package mcaasapi
 
 type Pagination struct {
-	Count int32 `json:"count,omitempty"`
-	Total int32 `json:"total,omitempty"`
+	Count int32 `json:"count"`
+	Total int32 `json:"total"`
 }

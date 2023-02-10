@@ -9,7 +9,7 @@
 package mcaasapi
 
 type ClusterProviders struct {
-	Count int32 `json:"count,omitempty"`
-	Total int32 `json:"total,omitempty"`
-	Items []ClusterProvider `json:"items,omitempty"`
+	Count int32 `json:"count"`
+	Total int32 `json:"total"`
+	Items []ClusterProvider `json:"items"`
 }
