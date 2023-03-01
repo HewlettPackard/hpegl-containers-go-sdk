@@ -24,6 +24,7 @@ type MachineBlueprint struct {
 	OsVersion string `json:"osVersion,omitempty"`
 	Size string `json:"size,omitempty"`
 	SizeDetail *AllOfMachineBlueprintSizeDetail `json:"sizeDetail,omitempty"`
+	SystemManaged bool `json:"systemManaged,omitempty"`
 	ComputeInstanceType string `json:"computeInstanceType,omitempty"`
 	StorageInstanceType string `json:"storageInstanceType,omitempty"`
 	Tags *interface{} `json:"tags,omitempty"`
