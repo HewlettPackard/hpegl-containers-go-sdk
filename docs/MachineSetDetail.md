@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **OsImage** | **string** |  | [optional] [default to null]
 **OsVersion** | **string** |  | [optional] [default to null]
 **Count** | **int32** |  | [optional] [default to null]
+**MinSize** | **int32** |  | [optional] [default to null]
+**MaxSize** | **int32** |  | [optional] [default to null]
 **MachineRoles** | [**[]MachineRolesType**](MachineRolesType.md) |  | [optional] [default to null]
 **MachineProvider** | **string** |  | [optional] [default to null]
 **Size** | **string** |  | [optional] [default to null]
