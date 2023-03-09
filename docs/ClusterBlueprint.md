@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **MachineSets** | [**[]MachineSet**](MachineSet.md) |  | [optional] [default to null]
 **MachineSetsDetail** | [**[]MachineSetDetail**](MachineSetDetail.md) |  | [optional] [default to null]
 **ApplianceID** | **string** |  | [optional] [default to null]
+**SystemManaged** | **bool** |  | [optional] [default to null]
 **DefaultStorageClass** | **string** |  | [optional] [default to null]
 **ControlPlaneCount** | **int32** |  | [optional] [default to null]
 
