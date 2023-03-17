@@ -13,4 +13,6 @@ type MachineRolesType string
 // List of MachineRolesType
 const (
 	WORKER_MachineRolesType MachineRolesType = "worker"
+	CONTROLPLANE_MachineRolesType MachineRolesType = "controlplane"
+	ETCD_MachineRolesType MachineRolesType = "etcd"
 )
