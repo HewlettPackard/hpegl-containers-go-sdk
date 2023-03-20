@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **OsVersion** | **string** |  | [optional] [default to null]
 **Size** | **string** |  | [optional] [default to null]
 **SizeDetail** | [***AllOfMachineBlueprintSizeDetail**](AllOfMachineBlueprintSizeDetail.md) |  | [optional] [default to null]
+**SystemManaged** | **bool** |  | [optional] [default to null]
 **ComputeInstanceType** | **string** |  | [optional] [default to null]
 **StorageInstanceType** | **string** |  | [optional] [default to null]
 **Tags** | [***interface{}**](interface{}.md) |  | [optional] [default to null]
