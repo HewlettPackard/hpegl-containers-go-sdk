@@ -9,6 +9,6 @@
 package mcaasapi
 
 type ComputeInstanceTypes struct {
-	Name string `json:"name,omitempty"`
-	Sizes []SizeDetail `json:"sizes,omitempty"`
+	Name string `json:"name"`
+	Sizes []SizeDetail `json:"sizes"`
 }

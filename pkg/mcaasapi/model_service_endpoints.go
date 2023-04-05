@@ -9,8 +9,8 @@
 package mcaasapi
 
 type ServiceEndpoints struct {
-	Endpoint string `json:"endpoint,omitempty"`
-	Name string `json:"name,omitempty"`
-	Namespace string `json:"namespace,omitempty"`
-	Type_ string `json:"type,omitempty"`
+	Endpoint string `json:"endpoint"`
+	Name string `json:"name"`
+	Namespace string `json:"namespace"`
+	Type_ string `json:"type"`
 }

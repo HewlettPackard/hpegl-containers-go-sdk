@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AvgCpu** | **string** |  | [optional] [default to null]
-**AvgMemory** | **string** |  | [optional] [default to null]
-**TotalPersistentStorage** | **string** |  | [optional] [default to null]
+**AvgCpu** | **string** |  | [default to null]
+**AvgMemory** | **string** |  | [default to null]
+**TotalPersistentStorage** | **string** |  | [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

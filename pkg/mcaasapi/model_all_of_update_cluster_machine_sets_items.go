@@ -9,12 +9,12 @@
 package mcaasapi
 
 type AllOfUpdateClusterMachineSetsItems struct {
-	Name string `json:"name,omitempty"`
-	MachineBlueprintId string `json:"machineBlueprintId,omitempty"`
-	MachineBlueprintName string `json:"machineBlueprintName,omitempty"`
-	OsImage string `json:"osImage,omitempty"`
-	OsVersion string `json:"osVersion,omitempty"`
-	Count int32 `json:"count,omitempty"`
-	MinSize int32 `json:"minSize,omitempty"`
-	MaxSize int32 `json:"maxSize,omitempty"`
+	Name string `json:"name"`
+	MachineBlueprintId string `json:"machineBlueprintId"`
+	MachineBlueprintName string `json:"machineBlueprintName"`
+	OsImage string `json:"osImage"`
+	OsVersion string `json:"osVersion"`
+	Count int32 `json:"count"`
+	MinSize int32 `json:"minSize"`
+	MaxSize int32 `json:"maxSize"`
 }
