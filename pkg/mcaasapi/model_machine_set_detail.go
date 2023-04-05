@@ -9,19 +9,19 @@
 package mcaasapi
 
 type MachineSetDetail struct {
-	Name string `json:"name,omitempty"`
-	MachineRoles []MachineRolesType `json:"machineRoles,omitempty"`
-	MachineProvider string `json:"machineProvider,omitempty"`
-	OsImage string `json:"osImage,omitempty"`
-	OsVersion string `json:"osVersion,omitempty"`
-	Size string `json:"size,omitempty"`
-	SizeDetail *AllOfMachineSetDetailSizeDetail `json:"sizeDetail,omitempty"`
-	ComputeInstanceType string `json:"computeInstanceType,omitempty"`
-	StorageInstanceType string `json:"storageInstanceType,omitempty"`
-	Networks []string `json:"networks,omitempty"`
-	Count int32 `json:"count,omitempty"`
-	MinSize int32 `json:"minSize,omitempty"`
-	MaxSize int32 `json:"maxSize,omitempty"`
-	Machines []Machine `json:"machines,omitempty"`
+	Name string `json:"name"`
+	MachineRoles []MachineRolesType `json:"machineRoles"`
+	MachineProvider *MachineProviderName `json:"machineProvider"`
+	OsImage string `json:"osImage"`
+	OsVersion string `json:"osVersion"`
+	Size string `json:"size"`
+	SizeDetail *AllOfMachineSetDetailSizeDetail `json:"sizeDetail"`
+	ComputeInstanceType string `json:"computeInstanceType"`
+	StorageInstanceType string `json:"storageInstanceType"`
+	Networks []string `json:"networks"`
+	Count int32 `json:"count"`
+	MinSize int32 `json:"minSize"`
+	MaxSize int32 `json:"maxSize"`
+	Machines []Machine `json:"machines"`
 	Tags *interface{} `json:"tags,omitempty"`
 }

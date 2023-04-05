@@ -8,9 +8,10 @@
  */
 package mcaasapi
 
-type UnprocessingEntityError struct {
+type ModelError struct {
 	HttpStatusCode int32 `json:"httpStatusCode"`
 	Message string `json:"message"`
 	DebugId string `json:"debugId"`
 	ErrorCode string `json:"errorCode"`
+	ErrorDetails *interface{} `json:"errorDetails,omitempty"`
 }

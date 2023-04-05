@@ -9,6 +9,6 @@
 package mcaasapi
 
 type ClusterProviderData struct {
-	ServiceConsoleContext string `json:"serviceConsoleContext,omitempty"`
-	ProviderClusterID string `json:"providerClusterID,omitempty"`
+	ServiceConsoleContext string `json:"serviceConsoleContext"`
+	ProviderClusterID string `json:"providerClusterID"`
 }
