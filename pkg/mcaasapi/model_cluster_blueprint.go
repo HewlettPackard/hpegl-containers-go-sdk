@@ -12,18 +12,18 @@ import (
 )
 
 type ClusterBlueprint struct {
-	CreatedDate time.Time `json:"createdDate,omitempty"`
-	LastUpdateDate time.Time `json:"lastUpdateDate,omitempty"`
-	Id string `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
+	CreatedDate time.Time `json:"createdDate"`
+	LastUpdateDate time.Time `json:"lastUpdateDate"`
+	Id string `json:"id"`
+	Name string `json:"name"`
 	K8sVersion string `json:"k8sVersion,omitempty"`
-	KubernetesVersion string `json:"kubernetesVersion,omitempty"`
+	KubernetesVersion string `json:"kubernetesVersion"`
 	Description string `json:"description,omitempty"`
-	ClusterProvider string `json:"clusterProvider,omitempty"`
-	MachineSets []MachineSet `json:"machineSets,omitempty"`
-	MachineSetsDetail []MachineSetDetail `json:"machineSetsDetail,omitempty"`
-	ApplianceID string `json:"applianceID,omitempty"`
-	SystemManaged bool `json:"systemManaged,omitempty"`
-	DefaultStorageClass string `json:"defaultStorageClass,omitempty"`
-	ControlPlaneCount int32 `json:"controlPlaneCount,omitempty"`
+	ClusterProvider string `json:"clusterProvider"`
+	MachineSets []MachineSet `json:"machineSets"`
+	MachineSetsDetail []MachineSetDetail `json:"machineSetsDetail"`
+	ApplianceID string `json:"applianceID"`
+	SystemManaged bool `json:"systemManaged"`
+	DefaultStorageClass string `json:"defaultStorageClass"`
+	ControlPlaneCount int32 `json:"controlPlaneCount"`
 }

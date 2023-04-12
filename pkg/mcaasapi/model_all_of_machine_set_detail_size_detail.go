@@ -9,11 +9,11 @@
 package mcaasapi
 
 type AllOfMachineSetDetailSizeDetail struct {
-	Name string `json:"name,omitempty"`
-	Cpu int32 `json:"cpu,omitempty"`
-	Memory int32 `json:"memory,omitempty"`
-	RootDisk int32 `json:"rootDisk,omitempty"`
-	EphemeralDisk int32 `json:"ephemeralDisk,omitempty"`
-	PersistentDisk int32 `json:"persistentDisk,omitempty"`
-	InstanceType string `json:"instanceType,omitempty"`
+	Name string `json:"name"`
+	Cpu int32 `json:"cpu"`
+	Memory int32 `json:"memory"`
+	RootDisk int32 `json:"rootDisk"`
+	EphemeralDisk int32 `json:"ephemeralDisk"`
+	PersistentDisk int32 `json:"persistentDisk"`
+	InstanceType string `json:"instanceType"`
 }

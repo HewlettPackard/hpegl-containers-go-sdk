@@ -8,9 +8,13 @@
  */
 package mcaasapi
 
-type BadRequestError struct {
-	HttpStatusCode int32 `json:"httpStatusCode"`
-	Message string `json:"message"`
-	DebugId string `json:"debugId"`
-	ErrorCode string `json:"errorCode"`
-}
+type MachineProviderName string
+
+// List of MachineProviderName
+const (
+	QUAKE_MachineProviderName MachineProviderName = "quake"
+	MORPHEUS_MachineProviderName MachineProviderName = "morpheus"
+	MISTIO_MachineProviderName MachineProviderName = "mistio"
+	EC2_MachineProviderName MachineProviderName = "ec2"
+	VMAAS_MachineProviderName MachineProviderName = "vmaas"
+)
