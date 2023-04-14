@@ -9,7 +9,7 @@
 package mcaasapi
 
 type ClusterUtilization struct {
-	AvgCpu string `json:"avgCpu,omitempty"`
-	AvgMemory string `json:"avgMemory,omitempty"`
-	TotalPersistentStorage string `json:"totalPersistentStorage,omitempty"`
+	AvgCpu string `json:"avgCpu"`
+	AvgMemory string `json:"avgMemory"`
+	TotalPersistentStorage string `json:"totalPersistentStorage"`
 }

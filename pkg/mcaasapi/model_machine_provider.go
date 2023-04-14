@@ -12,15 +12,15 @@ import (
 )
 
 type MachineProvider struct {
-	State string `json:"state,omitempty"`
-	Health string `json:"health,omitempty"`
-	CreatedDate time.Time `json:"createdDate,omitempty"`
-	LastUpdateDate time.Time `json:"lastUpdateDate,omitempty"`
-	Id string `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
-	WorkerType *MachineWorkerType `json:"workerType,omitempty"`
-	OsImages []OsImages `json:"osImages,omitempty"`
-	Networks []string `json:"networks,omitempty"`
-	ComputeInstanceTypes []ComputeInstanceTypes `json:"computeInstanceTypes,omitempty"`
-	StorageInstanceTypes []string `json:"storageInstanceTypes,omitempty"`
+	State string `json:"state"`
+	Health string `json:"health"`
+	CreatedDate time.Time `json:"createdDate"`
+	LastUpdateDate time.Time `json:"lastUpdateDate"`
+	Id string `json:"id"`
+	Name *MachineProviderName `json:"name"`
+	WorkerType *MachineWorkerType `json:"workerType"`
+	OsImages []OsImages `json:"osImages"`
+	Networks []string `json:"networks"`
+	ComputeInstanceTypes []ComputeInstanceTypes `json:"computeInstanceTypes"`
+	StorageInstanceTypes []string `json:"storageInstanceTypes"`
 }

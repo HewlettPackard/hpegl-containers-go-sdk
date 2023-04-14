@@ -12,31 +12,31 @@ import (
 )
 
 type Cluster struct {
-	State string `json:"state,omitempty"`
-	Health string `json:"health,omitempty"`
-	UserID string `json:"userID,omitempty"`
-	UserDisplayName string `json:"userDisplayName,omitempty"`
-	UserName string `json:"userName,omitempty"`
-	CreatedDate time.Time `json:"createdDate,omitempty"`
-	LastUpdateDate time.Time `json:"lastUpdateDate,omitempty"`
-	Id string `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
+	State string `json:"state"`
+	Health string `json:"health"`
+	UserID string `json:"userID"`
+	UserDisplayName string `json:"userDisplayName"`
+	UserName string `json:"userName"`
+	CreatedDate time.Time `json:"createdDate"`
+	LastUpdateDate time.Time `json:"lastUpdateDate"`
+	Id string `json:"id"`
+	Name string `json:"name"`
 	Description string `json:"description,omitempty"`
-	ErrorCode string `json:"errorCode,omitempty"`
-	ErrorMessage string `json:"errorMessage,omitempty"`
-	ClusterBlueprintId string `json:"clusterBlueprintId,omitempty"`
-	ClusterProvider string `json:"clusterProvider,omitempty"`
+	ErrorCode string `json:"errorCode"`
+	ErrorMessage string `json:"errorMessage"`
+	ClusterBlueprintId string `json:"clusterBlueprintId"`
+	ClusterProvider string `json:"clusterProvider"`
 	K8sVersion string `json:"k8sVersion,omitempty"`
-	KubernetesVersion string `json:"kubernetesVersion,omitempty"`
-	MachineSets []MachineSet `json:"machineSets,omitempty"`
-	MachineSetsDetail []MachineSetDetail `json:"machineSetsDetail,omitempty"`
-	Utilization *ClusterUtilization `json:"utilization,omitempty"`
-	ApiEndpoint string `json:"apiEndpoint,omitempty"`
-	ServiceEndpoints []ServiceEndpoints `json:"serviceEndpoints,omitempty"`
-	ApplianceID string `json:"applianceID,omitempty"`
-	ApplianceName string `json:"applianceName,omitempty"`
-	SpaceID string `json:"spaceID,omitempty"`
-	DefaultStorageClass string `json:"defaultStorageClass,omitempty"`
-	DefaultStorageClassDescription string `json:"defaultStorageClassDescription,omitempty"`
+	KubernetesVersion string `json:"kubernetesVersion"`
+	MachineSets []MachineSet `json:"machineSets"`
+	MachineSetsDetail []MachineSetDetail `json:"machineSetsDetail"`
+	Utilization *ClusterUtilization `json:"utilization"`
+	ApiEndpoint string `json:"apiEndpoint"`
+	ServiceEndpoints []ServiceEndpoints `json:"serviceEndpoints"`
+	ApplianceID string `json:"applianceID"`
+	ApplianceName string `json:"applianceName"`
+	SpaceID string `json:"spaceID"`
+	DefaultStorageClass string `json:"defaultStorageClass"`
+	DefaultStorageClassDescription string `json:"defaultStorageClassDescription"`
 	ProviderData *ClusterProviderData `json:"providerData,omitempty"`
 }
