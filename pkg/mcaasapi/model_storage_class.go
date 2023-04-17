@@ -9,13 +9,13 @@
 package mcaasapi
 
 type StorageClass struct {
-	Name string `json:"name,omitempty"`
-	Id string `json:"id,omitempty"`
+	Name string `json:"name"`
+	Id string `json:"id"`
 	Description string `json:"description,omitempty"`
-	GlStorageType string `json:"glStorageType,omitempty"`
-	AccessProtocol string `json:"accessProtocol,omitempty"`
-	Iops string `json:"iops,omitempty"`
-	Encryption string `json:"encryption,omitempty"`
-	Dedupe string `json:"dedupe,omitempty"`
-	CostPerGB string `json:"costPerGB,omitempty"`
+	GlStorageType string `json:"glStorageType"`
+	AccessProtocol string `json:"accessProtocol"`
+	Iops string `json:"iops"`
+	Encryption string `json:"encryption"`
+	Dedupe string `json:"dedupe"`
+	CostPerGB string `json:"costPerGB"`
 }

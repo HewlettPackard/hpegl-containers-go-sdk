@@ -12,21 +12,21 @@ import (
 )
 
 type MachineBlueprint struct {
-	CreatedDate time.Time `json:"createdDate,omitempty"`
-	LastUpdateDate time.Time `json:"lastUpdateDate,omitempty"`
-	Id string `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
+	CreatedDate time.Time `json:"createdDate"`
+	LastUpdateDate time.Time `json:"lastUpdateDate"`
+	Id string `json:"id"`
+	Name string `json:"name"`
 	// machine provider name
-	MachineProvider string `json:"machineProvider,omitempty"`
-	WorkerType *MachineWorkerType `json:"workerType,omitempty"`
-	MachineRoles []MachineRolesType `json:"machineRoles,omitempty"`
-	OsImage string `json:"osImage,omitempty"`
-	OsVersion string `json:"osVersion,omitempty"`
-	Size string `json:"size,omitempty"`
-	SizeDetail *AllOfMachineBlueprintSizeDetail `json:"sizeDetail,omitempty"`
-	SystemManaged bool `json:"systemManaged,omitempty"`
-	ComputeInstanceType string `json:"computeInstanceType,omitempty"`
-	StorageInstanceType string `json:"storageInstanceType,omitempty"`
+	MachineProvider string `json:"machineProvider"`
+	WorkerType *MachineWorkerType `json:"workerType"`
+	MachineRoles []MachineRolesType `json:"machineRoles"`
+	OsImage string `json:"osImage"`
+	OsVersion string `json:"osVersion"`
+	Size string `json:"size"`
+	SizeDetail *AllOfMachineBlueprintSizeDetail `json:"sizeDetail"`
+	SystemManaged bool `json:"systemManaged"`
+	ComputeInstanceType string `json:"computeInstanceType"`
+	StorageInstanceType string `json:"storageInstanceType"`
 	Tags *interface{} `json:"tags,omitempty"`
-	ApplianceID string `json:"applianceID,omitempty"`
+	ApplianceID string `json:"applianceID"`
 }

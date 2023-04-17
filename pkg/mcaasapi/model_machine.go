@@ -12,11 +12,11 @@ import (
 )
 
 type Machine struct {
-	State string `json:"state,omitempty"`
-	Health string `json:"health,omitempty"`
-	CreatedDate time.Time `json:"createdDate,omitempty"`
-	LastUpdateDate time.Time `json:"lastUpdateDate,omitempty"`
-	Name string `json:"name,omitempty"`
-	Hostname string `json:"hostname,omitempty"`
-	Id string `json:"id,omitempty"`
+	State string `json:"state"`
+	Health string `json:"health"`
+	CreatedDate time.Time `json:"createdDate"`
+	LastUpdateDate time.Time `json:"lastUpdateDate"`
+	Name string `json:"name"`
+	Hostname string `json:"hostname"`
+	Id string `json:"id"`
 }

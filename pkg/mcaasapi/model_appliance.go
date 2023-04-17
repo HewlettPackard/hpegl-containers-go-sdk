@@ -12,10 +12,10 @@ import (
 )
 
 type Appliance struct {
-	CreatedDate time.Time `json:"createdDate,omitempty"`
-	LastUpdateDate time.Time `json:"lastUpdateDate,omitempty"`
-	Id string `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
-	SsoAcsUrl string `json:"ssoAcsUrl,omitempty"`
-	Status string `json:"status,omitempty"`
+	CreatedDate time.Time `json:"createdDate"`
+	LastUpdateDate time.Time `json:"lastUpdateDate"`
+	Id string `json:"id"`
+	Name string `json:"name"`
+	SsoAcsUrl string `json:"ssoAcsUrl"`
+	Status string `json:"status"`
 }

@@ -12,11 +12,11 @@ import (
 )
 
 type Namespace struct {
-	CreatedDate time.Time `json:"createdDate,omitempty"`
-	LastUpdateDate time.Time `json:"lastUpdateDate,omitempty"`
-	Id string `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
-	ApplianceID string `json:"applianceID,omitempty"`
-	ClusterID string `json:"clusterID,omitempty"`
-	ResourceQuota []ResourceQuota `json:"resourceQuota,omitempty"`
+	CreatedDate time.Time `json:"createdDate"`
+	LastUpdateDate time.Time `json:"lastUpdateDate"`
+	Id string `json:"id"`
+	Name string `json:"name"`
+	ApplianceID string `json:"applianceID"`
+	ClusterID string `json:"clusterID"`
+	ResourceQuota []ResourceQuota `json:"resourceQuota"`
 }
