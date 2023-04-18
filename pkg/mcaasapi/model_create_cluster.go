@@ -9,9 +9,9 @@
 package mcaasapi
 
 type CreateCluster struct {
-	Name string `json:"name,omitempty"`
+	Name string `json:"name"`
 	Description string `json:"description,omitempty"`
-	ClusterBlueprintId string `json:"clusterBlueprintId,omitempty"`
-	ApplianceID string `json:"applianceID,omitempty"`
-	SpaceID string `json:"spaceID,omitempty"`
+	ClusterBlueprintId string `json:"clusterBlueprintId"`
+	ApplianceID string `json:"applianceID"`
+	SpaceID string `json:"spaceID"`
 }

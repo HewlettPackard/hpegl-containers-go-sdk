@@ -9,7 +9,7 @@
 package mcaasapi
 
 type User struct {
-	UserID string `json:"userID,omitempty"`
-	UserDisplayName string `json:"userDisplayName,omitempty"`
-	UserName string `json:"userName,omitempty"`
+	UserID string `json:"userID"`
+	UserDisplayName string `json:"userDisplayName"`
+	UserName string `json:"userName"`
 }

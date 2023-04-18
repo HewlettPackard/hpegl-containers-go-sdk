@@ -12,10 +12,10 @@ import (
 )
 
 type Kubeconfig struct {
-	CreatedDate time.Time `json:"createdDate,omitempty"`
-	LastUpdateDate time.Time `json:"lastUpdateDate,omitempty"`
-	Id string `json:"id,omitempty"`
-	ClusterID string `json:"clusterID,omitempty"`
-	Kubeconfig string `json:"kubeconfig,omitempty"`
-	ValidTill time.Time `json:"validTill,omitempty"`
+	CreatedDate time.Time `json:"createdDate"`
+	LastUpdateDate time.Time `json:"lastUpdateDate"`
+	Id string `json:"id"`
+	ClusterID string `json:"clusterID"`
+	Kubeconfig string `json:"kubeconfig"`
+	ValidTill time.Time `json:"validTill"`
 }
