@@ -9,5 +9,5 @@
 package mcaasapi
 
 type Health struct {
-	Health string `json:"health,omitempty"`
+	Health string `json:"health"`
 }

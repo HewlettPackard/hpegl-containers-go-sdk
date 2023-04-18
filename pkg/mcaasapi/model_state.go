@@ -9,5 +9,5 @@
 package mcaasapi
 
 type State struct {
-	State string `json:"state,omitempty"`
+	State string `json:"state"`
 }

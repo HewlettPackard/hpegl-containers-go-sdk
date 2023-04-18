@@ -9,7 +9,7 @@
 package mcaasapi
 
 type Licenses struct {
-	Label string `json:"label,omitempty"`
-	Summary string `json:"summary,omitempty"`
-	Status string `json:"status,omitempty"`
+	Label string `json:"label"`
+	Summary string `json:"summary"`
+	Status string `json:"status"`
 }

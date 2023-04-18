@@ -12,6 +12,6 @@ import (
 )
 
 type Common struct {
-	CreatedDate time.Time `json:"createdDate,omitempty"`
-	LastUpdateDate time.Time `json:"lastUpdateDate,omitempty"`
+	CreatedDate time.Time `json:"createdDate"`
+	LastUpdateDate time.Time `json:"lastUpdateDate"`
 }

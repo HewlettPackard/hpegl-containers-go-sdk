@@ -12,17 +12,17 @@ import (
 )
 
 type ClusterProvider struct {
-	State string `json:"state,omitempty"`
-	Health string `json:"health,omitempty"`
-	CreatedDate time.Time `json:"createdDate,omitempty"`
-	LastUpdateDate time.Time `json:"lastUpdateDate,omitempty"`
-	Id string `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
+	State string `json:"state"`
+	Health string `json:"health"`
+	CreatedDate time.Time `json:"createdDate"`
+	LastUpdateDate time.Time `json:"lastUpdateDate"`
+	Id string `json:"id"`
+	Name string `json:"name"`
 	K8sVersions []string `json:"k8sVersions,omitempty"`
-	KubernetesVersions []string `json:"kubernetesVersions,omitempty"`
-	MinMasterSize *AllOfClusterProviderMinMasterSize `json:"minMasterSize,omitempty"`
-	MinWorkerSize *AllOfClusterProviderMinWorkerSize `json:"minWorkerSize,omitempty"`
-	LicenseInfo *ClusterProviderLicenseInfo `json:"licenseInfo,omitempty"`
-	StorageClasses []StorageClass `json:"storageClasses,omitempty"`
-	AvailableCapacity *ClusterProviderAvailableCapacity `json:"availableCapacity,omitempty"`
+	KubernetesVersions []string `json:"kubernetesVersions"`
+	MinMasterSize *AllOfClusterProviderMinMasterSize `json:"minMasterSize"`
+	MinWorkerSize *AllOfClusterProviderMinWorkerSize `json:"minWorkerSize"`
+	LicenseInfo *ClusterProviderLicenseInfo `json:"licenseInfo"`
+	StorageClasses []StorageClass `json:"storageClasses"`
+	AvailableCapacity *ClusterProviderAvailableCapacity `json:"availableCapacity"`
 }

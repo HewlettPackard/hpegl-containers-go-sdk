@@ -9,6 +9,6 @@
 package mcaasapi
 
 type OsImages struct {
-	Name string `json:"name,omitempty"`
-	Versions []string `json:"versions,omitempty"`
+	Name string `json:"name"`
+	Versions []string `json:"versions"`
 }

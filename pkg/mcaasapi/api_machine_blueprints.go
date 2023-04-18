@@ -105,7 +105,7 @@ func (a *MachineBlueprintsApiService) V1MachineblueprintsGet(ctx context.Context
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 401 {
-			var v AuthenticationError
+			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -115,7 +115,7 @@ func (a *MachineBlueprintsApiService) V1MachineblueprintsGet(ctx context.Context
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 500 {
-			var v InternalError
+			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -193,7 +193,7 @@ func (a *MachineBlueprintsApiService) V1MachineblueprintsIdDelete(ctx context.Co
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 401 {
-			var v AuthenticationError
+			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -203,7 +203,7 @@ func (a *MachineBlueprintsApiService) V1MachineblueprintsIdDelete(ctx context.Co
 				return localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 403 {
-			var v ForbiddenError
+			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -213,7 +213,7 @@ func (a *MachineBlueprintsApiService) V1MachineblueprintsIdDelete(ctx context.Co
 				return localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 404 {
-			var v NotFoundError
+			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -223,7 +223,7 @@ func (a *MachineBlueprintsApiService) V1MachineblueprintsIdDelete(ctx context.Co
 				return localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 500 {
-			var v InternalError
+			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -320,7 +320,7 @@ func (a *MachineBlueprintsApiService) V1MachineblueprintsIdGet(ctx context.Conte
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 401 {
-			var v AuthenticationError
+			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -330,7 +330,7 @@ func (a *MachineBlueprintsApiService) V1MachineblueprintsIdGet(ctx context.Conte
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 404 {
-			var v NotFoundError
+			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -340,7 +340,7 @@ func (a *MachineBlueprintsApiService) V1MachineblueprintsIdGet(ctx context.Conte
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 500 {
-			var v InternalError
+			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -436,7 +436,7 @@ func (a *MachineBlueprintsApiService) V1MachineblueprintsPost(ctx context.Contex
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 400 {
-			var v BadRequestError
+			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -446,7 +446,7 @@ func (a *MachineBlueprintsApiService) V1MachineblueprintsPost(ctx context.Contex
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 401 {
-			var v AuthenticationError
+			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -456,7 +456,7 @@ func (a *MachineBlueprintsApiService) V1MachineblueprintsPost(ctx context.Contex
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 422 {
-			var v UnprocessingEntityError
+			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -466,7 +466,7 @@ func (a *MachineBlueprintsApiService) V1MachineblueprintsPost(ctx context.Contex
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 500 {
-			var v InternalError
+			var v ModelError
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
