@@ -12,6 +12,6 @@ type UpdateCluster struct {
 	Description string `json:"description,omitempty"`
 	K8sVersion string `json:"k8sVersion,omitempty"`
 	KubernetesVersion string `json:"kubernetesVersion,omitempty"`
-	MachineSets []AllOfUpdateClusterMachineSetsItems `json:"machineSets,omitempty"`
+	MachineSets []UpdateClusterMachineSet `json:"machineSets,omitempty"`
 	DefaultStorageClass string `json:"defaultStorageClass,omitempty"`
 }
