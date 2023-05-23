@@ -22,6 +22,7 @@ type Cluster struct {
 	Id string `json:"id"`
 	Name string `json:"name"`
 	Description string `json:"description,omitempty"`
+	Tags map[string]string `json:"tags,omitempty"`
 	ErrorCode string `json:"errorCode"`
 	ErrorMessage string `json:"errorMessage"`
 	ClusterBlueprintId string `json:"clusterBlueprintId"`
