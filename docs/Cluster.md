@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Id** | **string** |  | [default to null]
 **Name** | **string** |  | [default to null]
 **Description** | **string** |  | [optional] [default to null]
+**Tags** | **map[string]string** |  | [optional] [default to null]
 **ErrorCode** | **string** |  | [default to null]
 **ErrorMessage** | **string** |  | [default to null]
 **ClusterBlueprintId** | **string** |  | [default to null]
