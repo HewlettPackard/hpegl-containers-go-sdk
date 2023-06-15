@@ -23,5 +23,5 @@ type MachineSetDetail struct {
 	MinSize int32 `json:"minSize"`
 	MaxSize int32 `json:"maxSize"`
 	Machines []Machine `json:"machines"`
-	Tags *interface{} `json:"tags,omitempty"`
+	Tags map[string]string `json:"tags,omitempty"`
 }

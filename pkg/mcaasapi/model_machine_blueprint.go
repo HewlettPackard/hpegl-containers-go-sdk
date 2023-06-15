@@ -16,8 +16,7 @@ type MachineBlueprint struct {
 	LastUpdateDate time.Time `json:"lastUpdateDate"`
 	Id string `json:"id"`
 	Name string `json:"name"`
-	// machine provider name
-	MachineProvider string `json:"machineProvider"`
+	MachineProvider *MachineProviderName `json:"machineProvider"`
 	WorkerType *MachineWorkerType `json:"workerType"`
 	MachineRoles []MachineRolesType `json:"machineRoles"`
 	OsImage string `json:"osImage"`
@@ -27,6 +26,6 @@ type MachineBlueprint struct {
 	SystemManaged bool `json:"systemManaged"`
 	ComputeInstanceType string `json:"computeInstanceType"`
 	StorageInstanceType string `json:"storageInstanceType"`
-	Tags *interface{} `json:"tags,omitempty"`
+	Tags map[string]string `json:"tags,omitempty"`
 	ApplianceID string `json:"applianceID"`
 }
