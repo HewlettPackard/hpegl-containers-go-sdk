@@ -1,0 +1,38 @@
+# (C) Copyright 2023 Hewlett Packard Enterprise Development LP
+name: Scanning for Malware
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  scan_repository:
+    name: "Scan Virus on Repository"
+    runs-on: "ubuntu-latest"
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: "Checkout Repository"
+        uses: "actions/checkout@v3.5.0"
+        with:
+          fetch-depth: 0
+      - name: "Scan Source for Viruses"
+        id: scan
+        run: |
+          SHA_SHORT=$(git rev-parse --short HEAD)
+          SCAN_OUTPUT=/tmp/clamav-repository-results-${{ github.event.repository.name }}-${SHA_SHORT}-$(date +%s).txt
+          echo "scan_output=${SCAN_OUTPUT}" >> $GITHUB_OUTPUT
+          docker run --rm -v ${{ github.workspace }}:/scandir -v /tmp:/tmp -e SCAN_OUTPUT=${SCAN_OUTPUT} clamav/clamav:stable clamscan --infected --recursive --max-files=0 --max-filesize=0 --max-scansize=0 --max-recursion=1000 --max-dir-recursion=1000 /scandir | tee -a $SCAN_OUTPUT
+          exit $INFECTED_FILES
+      - name: "Configure AWS Credentials"
+        if: always()
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::522637239241:role/s3-avscan-upload 
+          role-session-name: malware-scan-upload 
+          aws-region: us-west-2
+      - name: "Upload Source Scan Results"
+        if: always()
+        run: aws s3 cp ${{ steps.scan.outputs.scan_output }} s3://glcs-cloud-security-dev-avscan.hpe-hcss.hpe.com/
