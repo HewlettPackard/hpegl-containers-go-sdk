@@ -14,4 +14,6 @@ type CreateCluster struct {
 	ClusterBlueprintId string `json:"clusterBlueprintId"`
 	ApplianceID string `json:"applianceID"`
 	SpaceID string `json:"spaceID"`
+	OidcEnabled bool `json:"oidcEnabled,omitempty"`
+	Oidc *AllOfCreateClusterOidc `json:"oidc,omitempty"`
 }
