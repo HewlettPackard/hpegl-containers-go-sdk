@@ -14,4 +14,6 @@ type UpdateCluster struct {
 	KubernetesVersion string `json:"kubernetesVersion,omitempty"`
 	MachineSets []UpdateClusterMachineSet `json:"machineSets,omitempty"`
 	DefaultStorageClass string `json:"defaultStorageClass,omitempty"`
+	OidcEnabled bool `json:"oidcEnabled,omitempty"`
+	Oidc *AllOfUpdateClusterOidc `json:"oidc,omitempty"`
 }

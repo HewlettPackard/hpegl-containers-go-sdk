@@ -31,6 +31,8 @@ Name | Type | Description | Notes
 **DefaultStorageClass** | **string** |  | [default to null]
 **DefaultStorageClassDescription** | **string** |  | [default to null]
 **ProviderData** | [***ClusterProviderData**](Cluster_providerData.md) |  | [optional] [default to null]
+**OidcEnabled** | **bool** |  | [optional] [default to null]
+**Oidc** | [***AllOfClusterOidc**](AllOfClusterOidc.md) |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
