@@ -16,6 +16,7 @@ import (
 	"net/url"
 	"strings"
 	"fmt"
+	"github.com/antihax/optional"
 )
 
 // Linger please
@@ -29,9 +30,16 @@ ClusterProvidersApiService Gets all Cluster Providers
 Retrieve all cluster providers for the current appliance  **Required Permissions to access the API**:    - caas.cluster.create  **Default Roles which can access the API**:    - Private Cloud Cluster Owner 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id appliance id
+ * @param optional nil or *ClusterProvidersApiV1AppliancesIdClusterprovidersGetOpts - Optional Parameters:
+     * @param "Field" (optional.String) -  field for all query parameters. Optional field to query all cluster providers within a particular space.
 @return ClusterProviders
 */
-func (a *ClusterProvidersApiService) V1AppliancesIdClusterprovidersGet(ctx context.Context, id string) (ClusterProviders, *http.Response, error) {
+
+type ClusterProvidersApiV1AppliancesIdClusterprovidersGetOpts struct {
+    Field optional.String
+}
+
+func (a *ClusterProvidersApiService) V1AppliancesIdClusterprovidersGet(ctx context.Context, id string, localVarOptionals *ClusterProvidersApiV1AppliancesIdClusterprovidersGetOpts) (ClusterProviders, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -48,6 +56,9 @@ func (a *ClusterProvidersApiService) V1AppliancesIdClusterprovidersGet(ctx conte
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Field.IsSet() {
+		localVarQueryParams.Add("field", parameterToString(localVarOptionals.Field.Value(), ""))
+	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}
 
