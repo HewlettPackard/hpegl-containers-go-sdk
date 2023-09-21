@@ -10,8 +10,6 @@ Name | Type | Description | Notes
 **MachineProvider** | [***MachineProviderName**](MachineProviderName.md) |  | [default to null]
 **WorkerType** | [***MachineWorkerType**](MachineWorkerType.md) |  | [default to null]
 **MachineRoles** | [**[]MachineRolesType**](MachineRolesType.md) |  | [default to null]
-**OsImage** | **string** |  | [default to null]
-**OsVersion** | **string** |  | [default to null]
 **Size** | **string** |  | [default to null]
 **SizeDetail** | [***AllOfMachineBlueprintSizeDetail**](AllOfMachineBlueprintSizeDetail.md) |  | [default to null]
 **SystemManaged** | **bool** |  | [default to null]

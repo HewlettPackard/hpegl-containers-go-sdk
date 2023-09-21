@@ -12,8 +12,6 @@ type MachineSetDetail struct {
 	Name string `json:"name"`
 	MachineRoles []MachineRolesType `json:"machineRoles"`
 	MachineProvider *MachineProviderName `json:"machineProvider"`
-	OsImage string `json:"osImage"`
-	OsVersion string `json:"osVersion"`
 	Size string `json:"size"`
 	SizeDetail *AllOfMachineSetDetailSizeDetail `json:"sizeDetail"`
 	ComputeInstanceType string `json:"computeInstanceType"`
