@@ -6,8 +6,6 @@ Name | Type | Description | Notes
 **Name** | **string** |  | [default to null]
 **MachineBlueprintId** | **string** |  | [default to null]
 **MachineBlueprintName** | **string** |  | [default to null]
-**OsImage** | **string** |  | [default to null]
-**OsVersion** | **string** |  | [default to null]
 **Count** | **int32** |  | [default to null]
 **MinSize** | **int32** |  | [default to null]
 **MaxSize** | **int32** |  | [default to null]

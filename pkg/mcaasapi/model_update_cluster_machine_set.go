@@ -12,8 +12,6 @@ type UpdateClusterMachineSet struct {
 	Name string `json:"name,omitempty"`
 	MachineBlueprintId string `json:"machineBlueprintId,omitempty"`
 	MachineBlueprintName string `json:"machineBlueprintName,omitempty"`
-	OsImage string `json:"osImage,omitempty"`
-	OsVersion string `json:"osVersion,omitempty"`
 	Count int32 `json:"count,omitempty"`
 	MinSize int32 `json:"minSize,omitempty"`
 	MaxSize int32 `json:"maxSize,omitempty"`

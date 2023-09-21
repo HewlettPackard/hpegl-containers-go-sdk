@@ -6,8 +6,6 @@ Name | Type | Description | Notes
 **Name** | **string** |  | [default to null]
 **MachineRoles** | [**[]MachineRolesType**](MachineRolesType.md) |  | [default to null]
 **MachineProvider** | [***MachineProviderName**](MachineProviderName.md) |  | [default to null]
-**OsImage** | **string** |  | [default to null]
-**OsVersion** | **string** |  | [default to null]
 **Size** | **string** |  | [default to null]
 **SizeDetail** | [***AllOfMachineSetDetailSizeDetail**](AllOfMachineSetDetailSizeDetail.md) |  | [default to null]
 **ComputeInstanceType** | **string** |  | [default to null]

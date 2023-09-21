@@ -30,7 +30,6 @@ Name | Type | Description | Notes
 **SpaceID** | **string** |  | [default to null]
 **DefaultStorageClass** | **string** |  | [default to null]
 **DefaultStorageClassDescription** | **string** |  | [default to null]
-**ProviderData** | [***ClusterProviderData**](Cluster_providerData.md) |  | [optional] [default to null]
 **OidcEnabled** | **bool** |  | [optional] [default to null]
 **Oidc** | [***AllOfClusterOidc**](AllOfClusterOidc.md) |  | [optional] [default to null]
 

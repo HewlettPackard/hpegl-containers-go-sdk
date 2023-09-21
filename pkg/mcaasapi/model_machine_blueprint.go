@@ -19,8 +19,6 @@ type MachineBlueprint struct {
 	MachineProvider *MachineProviderName `json:"machineProvider"`
 	WorkerType *MachineWorkerType `json:"workerType"`
 	MachineRoles []MachineRolesType `json:"machineRoles"`
-	OsImage string `json:"osImage"`
-	OsVersion string `json:"osVersion"`
 	Size string `json:"size"`
 	SizeDetail *AllOfMachineBlueprintSizeDetail `json:"sizeDetail"`
 	SystemManaged bool `json:"systemManaged"`

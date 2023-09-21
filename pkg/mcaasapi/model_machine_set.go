@@ -12,8 +12,6 @@ type MachineSet struct {
 	Name string `json:"name"`
 	MachineBlueprintId string `json:"machineBlueprintId"`
 	MachineBlueprintName string `json:"machineBlueprintName"`
-	OsImage string `json:"osImage"`
-	OsVersion string `json:"osVersion"`
 	Count int32 `json:"count"`
 	MinSize int32 `json:"minSize"`
 	MaxSize int32 `json:"maxSize"`

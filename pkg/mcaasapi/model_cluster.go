@@ -39,7 +39,6 @@ type Cluster struct {
 	SpaceID string `json:"spaceID"`
 	DefaultStorageClass string `json:"defaultStorageClass"`
 	DefaultStorageClassDescription string `json:"defaultStorageClassDescription"`
-	ProviderData *ClusterProviderData `json:"providerData,omitempty"`
 	OidcEnabled bool `json:"oidcEnabled,omitempty"`
 	Oidc *AllOfClusterOidc `json:"oidc,omitempty"`
 }
